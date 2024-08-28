@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TrabalhoFinal._3_Entidade
+namespace TrabalhoFinal._3_Entidade;
+
+public class Livros
 {
-    internal class Livros
-    {
-    }
+    public int Id { get; set; }
+    public string NomeLivro { get; set; }
+
 }
