@@ -10,5 +10,8 @@ public class Livros
 {
     public int Id { get; set; }
     public string NomeLivro { get; set; }
-
+    public int NumPaginas { get; set; }
+    public string EditoraLivro { get; set; }
+    public string Tipo { get; set; }
+    public string Classificacoes { get; set; }
 }
