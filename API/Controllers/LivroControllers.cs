@@ -1,4 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Data.SQLite;
+using TrabalhoFinal._1_Service;
+using TrabalhoFinal._3_Entidade;
 
 namespace API.Controllers;
 
@@ -6,12 +9,16 @@ namespace API.Controllers;
 [Route("[controller]")]
 public class LivroControllers : ControllerBase
 {
-    public LivroControllers() { }
+    public LivroService service { get; set; }
+    public LivroControllers() 
+    {
+        service = new LivroService();
+    }
 
     [HttpPost("Adicionar_Livro")]
-    public void AdicionmarLivro()
+    public void AdicionmarLivro([FromQuery] Livros v)
     {
-      
+        service.Adicionar(v);
     }
 
 
