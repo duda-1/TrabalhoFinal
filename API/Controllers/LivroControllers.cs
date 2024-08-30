@@ -6,7 +6,7 @@ using TrabalhoFinal._3_Entidade;
 namespace API.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("[controller]")]//Data Annotations
 public class LivroControllers : ControllerBase
 {
     public LivroService service { get; set; }
@@ -23,20 +23,20 @@ public class LivroControllers : ControllerBase
 
 
     [HttpGet("Listar_Livro")]
-    public void GetListarTime()
+    public List<Livros> ListarTime()
     {
-        
+       return service.Listar();
     }
 
     [HttpDelete("Remover_Livro")]
-    public void RemoverLivro()
+    public void RemoverLivro(int id)
     {
-        
+        service.Remover(id);
     }
 
     [HttpPut("Editar_Livro")]
-    public void Editar_Livro()
+    public void Editar_Livro([FromQuery] int id, Livros livro)
     {
-       
+       service.Editar(id, livro);
     }
 }

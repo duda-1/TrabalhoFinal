@@ -23,8 +23,7 @@ namespace TrabalhoFinal._2_Repository.Data
                     NomeLivro TEXT NOT NULL,
                     NumPaginas  INTEGER NOT NULL,
                     EditoraLivro TEXT NOT NULL,
-                    Tipo TEXT NOT NULL,
-                    Classificacoes TEXT NOT NULL
+                    NomeAutor TEXT NOT NULL
                     );";
 
                 using (var command = new SQLiteCommand(commandoSQL, connection))
