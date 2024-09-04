@@ -9,9 +9,12 @@ namespace API.Controllers;
 [Route("[controller]")]//Data Annotations
 public class LivroControllers : ControllerBase
 {
+    public readonly string _connectionString;
     public LivroService service { get; set; }
-    public LivroControllers() 
+
+    public LivroControllers(IConfiguration configuration) 
     {
+        _connectionString = configuration.GetConnectionString("DefaultConnection");
         service = new LivroService();
     }
 

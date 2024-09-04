@@ -1,23 +1,21 @@
-﻿using System;
+﻿using Dapper;
+using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TrabalhoFinal._2_Repository.Data
+namespace TrabalhoFinal._2_Repository.Data;
+
+public static class InicializadorBD
 {
-    public static class InicializadorBD
+    private const string ConnectionString = "Data Source=Livro.db";
+
+    public static void Inicializar()
     {
-        private const string ConnectionString = "Data Source=Livro.db";
-
-        public static void Inicializar()
-        {
-            using (var connection = new SQLiteConnection(ConnectionString))
-            {
-                connection.Open();
-
-                string commandoSQL = @"
+        using var connection = new SQLiteConnection("Data Source=Livros.db");
+        string criatTabela = @"
                     CREATE TABLE IF NOT EXISTS Livros(
                     Id INTEGER PRIMARY KEY AUTOINCREMENT,
                     NomeLivro TEXT NOT NULL,
@@ -25,13 +23,9 @@ namespace TrabalhoFinal._2_Repository.Data
                     EditoraLivro TEXT NOT NULL,
                     NomeAutor TEXT NOT NULL
                     );";
-
-                using (var command = new SQLiteCommand(commandoSQL, connection))
-                {
-                    command.ExecuteNonQuery();
-                }
-            }
-        }
+        connection.Execute(criatTabela);//Execute  qualquer programa SQL    
     }
-}
+ }
+
+
 
