@@ -15,7 +15,7 @@ public class LivroControllers : ControllerBase
     public LivroControllers(IConfiguration configuration) 
     {
         _connectionString = configuration.GetConnectionString("DefaultConnection");
-        service = new LivroService();
+        service = new LivroService(_connectionString);
     }
 
     [HttpPost("Adicionar_Livro")]

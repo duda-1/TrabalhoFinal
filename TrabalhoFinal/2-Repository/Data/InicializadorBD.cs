@@ -23,6 +23,11 @@ public static class InicializadorBD
                     EditoraLivro TEXT NOT NULL,
                     NomeAutor TEXT NOT NULL
                     );";
+        criatTabela += @"CREATE TABLE IF NOT EXISTS Clientes(
+                        Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        Nome TEXT NOT NULL,
+                        Idade INTEGER  NOT NULL,
+                        Email  INTEGER NOT NULL);";
         connection.Execute(criatTabela);//Execute  qualquer programa SQL    
     }
  }

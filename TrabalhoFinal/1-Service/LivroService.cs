@@ -13,9 +13,9 @@ namespace TrabalhoFinal._1_Service
     {
         public LivroRepository repository { get; set; }
 
-       public LivroService()
+       public LivroService(string coonn)
         {
-            repository= new LivroRepository();
+            repository= new LivroRepository(coonn);
         }
         public void Adicionar(Livros v)
         {

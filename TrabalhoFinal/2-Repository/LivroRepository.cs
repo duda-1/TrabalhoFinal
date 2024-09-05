@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SQLite;
 using System.Linq;
 using System.Text;
@@ -11,8 +12,11 @@ namespace TrabalhoFinal._2_Repository
 {
     public class LivroRepository
     {
-        private const string ConnectionString = "Data Source=Livro.db";
-
+        private readonly string ConnectionString;
+        public LivroRepository(string s)
+        {
+            ConnectionString = s;
+        }
         public void Adicionar(Livros v)
         {
             using (var connection = new SQLiteConnection(ConnectionString))
