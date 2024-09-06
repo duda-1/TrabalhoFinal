@@ -4,23 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TrabalhoFinal._2_Repository;
-using TrabalhoFinal._2_Repository.Data;
 using TrabalhoFinal._3_Entidade;
 
 namespace TrabalhoFinal._1_Service
 {
-    public  class LivroService
+    public class ClienteService
     {
-        public LivroRepository repository { get; set; }
+        public ClienteRepository repository { get; set; }
 
-       public LivroService(string l)
+        public ClienteService(string coonn)
         {
-            repository= new LivroRepository(l);
+            repository = new ClienteRepository(coonn);
         }
-
-        public void Adicionar(Livro l)
+        public void Adicionar(Cliente c)
         {
-            repository.Adicionar(l);
+            repository.Adicionar(c);
         }
 
         public void Remover(int id)
@@ -28,17 +26,17 @@ namespace TrabalhoFinal._1_Service
             repository.Remover(id);
         }
 
-        public List<Livro> Listar()
+        public List<Cliente> Listar()
         {
-           return repository.Listar();
+            return repository.Listar();
         }
 
-        public void Editar(Livro l)
+        public void Editar(Cliente c)
         {
-            repository.Editar(l);
+            repository.Editar(c);
         }
 
-        public Livro BuscarPorId(int id)
+        public Cliente BuscarPorId(int id)
         {
             return repository.BuscarPorId(id);
         }

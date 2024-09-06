@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TrabalhoFinal._3_Entidade;
 
-public class Livros
+public class Livro
 {
     public int Id { get; set; }
     [Required(ErrorMessage = "Erro esse nome esta nullo")]

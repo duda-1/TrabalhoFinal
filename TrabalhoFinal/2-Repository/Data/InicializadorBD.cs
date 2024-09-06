@@ -10,7 +10,6 @@ namespace TrabalhoFinal._2_Repository.Data;
 
 public static class InicializadorBD
 {
-    private const string ConnectionString = "Data Source=Livro.db";
 
     public static void Inicializar()
     {

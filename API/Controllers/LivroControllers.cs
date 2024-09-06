@@ -19,14 +19,14 @@ public class LivroControllers : ControllerBase
     }
 
     [HttpPost("Adicionar_Livro")]
-    public void AdicionmarLivro([FromQuery] Livros v)
+    public void AdicionmarLivro([FromQuery] Livro l)
     {
-        service.Adicionar(v);
+        service.Adicionar(l);
     }
 
 
     [HttpGet("Listar_Livro")]
-    public List<Livros> ListarTime()
+    public List<Livro> ListarTime()
     {
        return service.Listar();
     }
@@ -38,8 +38,8 @@ public class LivroControllers : ControllerBase
     }
 
     [HttpPut("Editar_Livro")]
-    public void Editar_Livro([FromQuery] int id, Livros livro)
+    public void Editar_Livro([FromQuery]  Livro livro)
     {
-       service.Editar(id, livro);
+       service.Editar(livro);
     }
 }

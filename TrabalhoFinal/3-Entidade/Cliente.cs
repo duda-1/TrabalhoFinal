@@ -10,7 +10,7 @@ namespace TrabalhoFinal._3_Entidade
     {
         public int Id { get; set; } 
         public string Nome { get;}
-        public int Edade { get; set; }
+        public int Idade { get; set; }
         public string Email { get; set; }
     }
 }
