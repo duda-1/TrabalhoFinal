@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using TrabalhoFinal._1_Service;
 using TrabalhoFinal._3_Entidade;
 
@@ -11,17 +12,21 @@ namespace API.Controllers
     {
         public readonly string ConnectionString;
         public ClienteService service { get; set; }
+        private readonly IMapper _mapper;
 
-        public ClienteController(IConfiguration configuration)
+        public ClienteController(IMapper mapper,IConfiguration configuration)
         {
             ConnectionString = configuration.GetConnectionString("DefaultConnection");
             service = new ClienteService(ConnectionString);
+            _mapper= mapper;
+
         }
 
         [HttpPost("Adicionar_Cliente")]
-        public void AdicionmarCliente([FromQuery] Cliente c)
+        public void AdicionmarCliente([FromQuery] CreateClienteDTO c)
         {
-            service.Adicionar(c);
+            Cliente cliente = _mapper.Map<Cliente>(c);
+            service.Adicionar(cliente);
         }
 
 

@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace TrabalhoFinal._3_Entidade
 {
-    public class Cliente
+    public class CadastroCliente
     {
-        public int Id { get; set; } 
-        public string Nome { get;}
+        public int Id { get; set; }
+        public string Nome { get; }
         public int Idade { get; set; }
         public string Email { get; set; }
-        public string Senha { get; set; }
+        public string Senha { get; set; }   
     }
 }

@@ -13,7 +13,7 @@ public static class InicializadorBD
 
     public static void Inicializar()
     {
-        using var connection = new SQLiteConnection("Data Source=Livros.db");
+        using var connection = new SQLiteConnection("Data Source=Biblioteca.db");
         string criatTabela = @"
                     CREATE TABLE IF NOT EXISTS Livros(
                     Id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -26,7 +26,22 @@ public static class InicializadorBD
                         Id INTEGER PRIMARY KEY AUTOINCREMENT,
                         Nome TEXT NOT NULL,
                         Idade INTEGER  NOT NULL,
-                        Email  INTEGER NOT NULL);";
+                        Email  INTEGER NOT NULL,
+                        Senha TEXT NOT NULL);";
+        criatTabela += @"CREATE TABLE IF NOT EXISTS Cadastro(
+                        Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        Nome TEXT NOT NULL,
+                        Idade INTEGER  NOT NULL,
+                        Email  INTEGER NOT NULL,
+                        Senha TEXT NOT NULL);";
+        criatTabela += @"CREATE TABLE IF NOT EXISTS Entrega(
+                        Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        Cidade TEXT NOT NULL,
+                        Rua TEXT NOT NULL,
+                        Bairro TEXT  NOT NULL,
+                        Num_Casa  INTEGER NOT NULL,
+                        Valor_Fret REAL NOT NULL,
+                        Valor_Total REAL NOT NULL);";
         connection.Execute(criatTabela);//Execute  qualquer programa SQL    
     }
  }
