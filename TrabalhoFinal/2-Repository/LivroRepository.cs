@@ -1,4 +1,5 @@
-﻿using Dapper.Contrib.Extensions;
+﻿using AutoMapper;
+using Dapper.Contrib.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Configuration;

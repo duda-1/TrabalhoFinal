@@ -28,13 +28,13 @@ public static class InicializadorBD
                         Idade INTEGER  NOT NULL,
                         Email  INTEGER NOT NULL,
                         Senha TEXT NOT NULL);";
-        criatTabela += @"CREATE TABLE IF NOT EXISTS Cadastro(
+        criatTabela += @"CREATE TABLE IF NOT EXISTS Cadastros(
                         Id INTEGER PRIMARY KEY AUTOINCREMENT,
                         Nome TEXT NOT NULL,
                         Idade INTEGER  NOT NULL,
                         Email  INTEGER NOT NULL,
                         Senha TEXT NOT NULL);";
-        criatTabela += @"CREATE TABLE IF NOT EXISTS Entrega(
+        criatTabela += @"CREATE TABLE IF NOT EXISTS Entregas(
                         Id INTEGER PRIMARY KEY AUTOINCREMENT,
                         Cidade TEXT NOT NULL,
                         Rua TEXT NOT NULL,

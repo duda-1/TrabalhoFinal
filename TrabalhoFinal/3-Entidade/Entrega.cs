@@ -14,6 +14,7 @@ namespace TrabalhoFinal._3_Entidade
         public string Bairro { get; set; }
         public int Num_Casa { get; set; }
         public double Valor_Fret { get; set; }
+        public double Valor_Produtos { get; set; }  
         public double Valor_Total { get; set; }
     }
 }
