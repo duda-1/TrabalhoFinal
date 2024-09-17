@@ -42,6 +42,10 @@ public static class InicializadorBD
                         Num_Casa  INTEGER NOT NULL,
                         Valor_Fret REAL NOT NULL,
                         Valor_Total REAL NOT NULL);";
+        criatTabela += @"CREATE TABLE IF NOT EXISTS Carrinhos(
+                        Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        ClienteId INTEGER NOT NULL,
+                        LivroId INTEGER NOT NULL);";
         connection.Execute(criatTabela);//Execute  qualquer programa SQL    
     }
  }
