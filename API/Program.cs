@@ -1,3 +1,4 @@
+using API;
 using TrabalhoFinal;
 using TrabalhoFinal._2_Repository.Data;
 
@@ -8,6 +9,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 InicializadorBD.Inicializar();
+builder.Services.AddAutoMapper(typeof(MappingProfile));
 
 
 var app = builder.Build();
