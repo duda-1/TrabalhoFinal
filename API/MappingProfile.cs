@@ -11,7 +11,6 @@ namespace API
         {
             CreateMap<CreateLivroDTO, Livro>().ReverseMap();
             CreateMap<CreateClienteDTO, Cliente>().ReverseMap();
-            CreateMap<CreateCadastroC_DTO, CadastroCliente>().ReverseMap();
             CreateMap<CreateCarrinhoDTO, Carrinho>().ReverseMap();
         }
     }

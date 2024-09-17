@@ -32,6 +32,7 @@ namespace TrabalhoFinal._2_Repository
 
         public List<Carrinho> Listar()
         {
+            //mexer no listar
             using var connection = new SQLiteConnection(ConnectionString);
             return connection.GetAll<Carrinho>().ToList();
         }
