@@ -25,6 +25,7 @@ public static class InicializadorBD
         criatTabela += @"CREATE TABLE IF NOT EXISTS Clientes(
                         Id INTEGER PRIMARY KEY AUTOINCREMENT,
                         Nome TEXT NOT NULL,
+                        UsuarioName TEXT NOT NULL,
                         Idade INTEGER  NOT NULL,
                         Email  INTEGER NOT NULL,
                         Senha TEXT NOT NULL);";

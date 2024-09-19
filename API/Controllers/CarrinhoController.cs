@@ -32,7 +32,7 @@ namespace API.Controllers
 
 
         [HttpGet("Listar_Carrinho")]
-        public List<Carrinho> ListarCarrinho()
+        public List<CreateCarrinhoDTO> ListarCarrinho()
         {
             return service.Listar();
         }

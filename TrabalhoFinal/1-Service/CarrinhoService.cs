@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TrabalhoFinal._2_Repository;
 using TrabalhoFinal._3_Entidade;
+using TrabalhoFinal._3_Entidade.DTO;
 
 namespace TrabalhoFinal._1_Service
 {
@@ -26,7 +27,7 @@ namespace TrabalhoFinal._1_Service
             repository.Remover(id);
         }
 
-        public List<Carrinho> Listar()
+        public List<CreateCarrinhoDTO> Listar()
         {
             return repository.Listar();
         }
