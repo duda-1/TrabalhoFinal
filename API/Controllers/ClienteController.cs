@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FrontEnd.Models.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using TrabalhoFinal._1_Service;
 using TrabalhoFinal._3_Entidade;
@@ -12,6 +13,8 @@ namespace API.Controllers
     {
         public readonly string ConnectionString;
         public ClienteService service { get; set; }
+
+
         private readonly IMapper _mapper;
 
         public ClienteController(IMapper mapper,IConfiguration configuration)
@@ -29,6 +32,12 @@ namespace API.Controllers
             service.Adicionar(cliente);
         }
 
+        [HttpPost("fazer-login")]
+        public Cliente FazerLogin(ClienteLoginDTO clienteLogin)
+        {
+            Cliente cliente = service.FazerLogin(clienteLogin);
+            return cliente;
+        }
 
         [HttpGet("Listar_Cliente")]
         public List<Cliente> ListarCliente()

@@ -11,5 +11,6 @@ namespace TrabalhoFinal._3_Entidade
         public  int Id { get; set; }
         public int ClienteId { get; set; }  
         public int LivroId { get; set; }
+        public int PrecoId { get; set; }   
     }
 }

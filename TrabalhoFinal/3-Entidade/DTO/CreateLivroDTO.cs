@@ -12,5 +12,6 @@ namespace TrabalhoFinal._1_Service.DTO
         public int NumPaginas { get; set; }
         public string EditoraLivro { get; set; }
         public string NomeAutor { get; set; }
+        public double Preco { get; set; }
     }
 }

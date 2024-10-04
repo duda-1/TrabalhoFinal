@@ -20,8 +20,10 @@ public static class InicializadorBD
                     NomeLivro TEXT NOT NULL,
                     NumPaginas  INTEGER NOT NULL,
                     EditoraLivro TEXT NOT NULL,
-                    NomeAutor TEXT NOT NULL
+                    NomeAutor TEXT NOT NULL,
+                    Preco Real NOT NULL
                     );";
+
         criatTabela += @"CREATE TABLE IF NOT EXISTS Clientes(
                         Id INTEGER PRIMARY KEY AUTOINCREMENT,
                         Nome TEXT NOT NULL,
@@ -29,18 +31,28 @@ public static class InicializadorBD
                         Idade INTEGER  NOT NULL,
                         Email  INTEGER NOT NULL,
                         Senha TEXT NOT NULL);";
-        criatTabela += @"CREATE TABLE IF NOT EXISTS Entregas(
+
+        criatTabela += @"CREATE TABLE IF NOT EXISTS Enderecos(
                         Id INTEGER PRIMARY KEY AUTOINCREMENT,
                         Cidade TEXT NOT NULL,
                         Rua TEXT NOT NULL,
                         Bairro TEXT  NOT NULL,
-                        Num_Casa  INTEGER NOT NULL,
-                        Valor_Fret REAL NOT NULL,
-                        Valor_Total REAL NOT NULL);";
-        criatTabela += @"CREATE TABLE IF NOT EXISTS Carrinhos(
+                        Num  INTEGER NOT NULL);";
+ 
+    criatTabela += @"CREATE TABLE IF NOT EXISTS Carrinhos(
                         Id INTEGER PRIMARY KEY AUTOINCREMENT,
                         ClienteId INTEGER NOT NULL,
-                        LivroId INTEGER NOT NULL);";
+                        LivroId INTEGER NOT NULL,
+                       PrecoId INTEGER NOT NULL);";
+
+    criatTabela += @"CREATE TABLE IF NOT EXISTS Vendas(
+                       Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                       ValorFret INTEGER NOT NULL,
+                       ValorTotal INTEGER NOT NULL,
+                       FormaPagamento INTEGER NOT NULL,
+                       UsuarioNameId INTEGER NOT NULL,
+                       CarrinhoId INTEGER NOT NULL);";
+
         connection.Execute(criatTabela);//Execute  qualquer programa SQL    
     }
  }

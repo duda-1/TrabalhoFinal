@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FrontEnd.Models.DTOs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -40,5 +41,21 @@ namespace TrabalhoFinal._1_Service
         {
             return repository.BuscarPorId(id);
         }
+
+        public Cliente FazerLogin(ClienteLoginDTO usuarioLogin)
+        {
+            List<Cliente> listcliente = Listar();
+            foreach (Cliente cliente in listcliente)
+            {
+                if (cliente.UsuarioName == usuarioLogin.UsuarioName
+                    && cliente.Senha == usuarioLogin.Senha)
+                {
+                    return cliente;
+                }
+            }
+            return null;
+        }
+
+
     }
 }
