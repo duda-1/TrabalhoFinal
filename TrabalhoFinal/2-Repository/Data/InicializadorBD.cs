@@ -29,7 +29,7 @@ public static class InicializadorBD
                         Nome TEXT NOT NULL,
                         UsuarioName TEXT NOT NULL,
                         Idade INTEGER  NOT NULL,
-                        Email  INTEGER NOT NULL,
+                        Email  TEXT NOT NULL,
                         Senha TEXT NOT NULL);";
 
         criatTabela += @"CREATE TABLE IF NOT EXISTS Enderecos(

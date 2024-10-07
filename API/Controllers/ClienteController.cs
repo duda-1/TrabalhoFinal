@@ -26,14 +26,14 @@ namespace API.Controllers
         }
 
         [HttpPost("Adicionar_Cliente")]
-        public void AdicionmarCliente([FromQuery] CreateClienteDTO c)
+        public void AdicionmarCliente([FromBody] CreateClienteDTO c)
         {
             Cliente cliente = _mapper.Map<Cliente>(c);
             service.Adicionar(cliente);
         }
 
         [HttpPost("fazer-login")]
-        public Cliente FazerLogin(ClienteLoginDTO clienteLogin)
+        public Cliente FazerLogin([FromBody] ClienteLoginDTO clienteLogin)
         {
             Cliente cliente = service.FazerLogin(clienteLogin);
             return cliente;
@@ -46,13 +46,13 @@ namespace API.Controllers
         }
 
         [HttpDelete("Remover_Cliente")]
-        public void RemoverCliente(int id)
+        public void RemoverCliente([FromQuery] int id)
         {
             service.Remover(id);
         }
 
         [HttpPut("Editar_Cliente")]
-        public void Editar_Cliente([FromQuery] Cliente c)
+        public void Editar_Cliente([FromBody] Cliente c)
         {
             service.Editar(c);
         }

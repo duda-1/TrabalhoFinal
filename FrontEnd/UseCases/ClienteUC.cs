@@ -16,13 +16,13 @@ namespace FrontEnd.UseCases
         {
             _client = cliente;
         }
-        public List<Cliente> ListarUsuarios()
+        public List<Cliente> ListarCliente()
         {
             return _client.GetFromJsonAsync<List<Cliente>>("Cliente/Listar_Cliente").Result;
         }
-        public void CadastrarUsuario(Cliente cliente)
+        public void CadastrarCliente(Cliente cliente)
         {
-            HttpResponseMessage response = _client.PostAsJsonAsync("Cliente/Adicionar_Cliente", cliente).Result;
+            HttpResponseMessage response = _client.PostAsJsonAsync("Cliente/Adicionar_Cliente", cliente).Result;        
         }
         public Cliente FazerLogin(ClienteLoginDTO clienteLogin)
         {

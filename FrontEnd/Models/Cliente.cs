@@ -17,7 +17,7 @@ namespace FrontEnd.Models
 
         public override string ToString()
         {
-            return $"Id: {Id} - Nome: {Nome} - Email: {Email} - UserName: {UsuarioName}";
+            return $"Id: {Id} - Nome: {Nome} - UserName: {UsuarioName} - Email: {Email}  ";
         }
     }
 }
