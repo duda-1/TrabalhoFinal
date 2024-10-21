@@ -15,6 +15,7 @@ public class Sistema
     public readonly ClienteUC _clienteUC;
     public readonly LivroUC _livroUC;
     public readonly CarrinhoUC _CarrinhoUC;
+    public readonly EnderecoUC _enderecoUC;
 
     public Sistema(HttpClient client)
     {
@@ -174,13 +175,57 @@ public class Sistema
                     Console.WriteLine(car.ToString());
                 }
 
-               // RealizarEntrega();
+                RealizarEntrega();
 
             }
 
         }
     }
-
-
     // Livro e Carrinho Fim
+
+    //Entega começo
+    private void RealizarEntrega()
+    {
+        int idEndereco = 0;
+        Console.WriteLine("Escolha uma opção: \n 1- Retirar na loja " +
+                                             "\n 2- Entregar a domicilio");
+        int alternativa = int.Parse(Console.ReadLine());
+        if (alternativa == 1)
+        {
+            Console.WriteLine("Retire a sua compra na loja em 7 dias.");
+        }
+        else if (alternativa == 2)
+        {
+            Console.WriteLine("Escolha as opção: \n 1- Listar Enderecos cadastrados" +
+                                                "\n 2 - Cadastrar endereço");
+            int opcao = int.Parse(Console.ReadLine());
+            if (opcao == 1)
+            {
+                List<Endereco> enderecos = _enderecoUC.ListarEnderecosDoUsuario(ClienteLogado.Id);
+                foreach (Endereco end in enderecos)
+                {
+                    Console.WriteLine(end.ToString());
+                }
+                Console.WriteLine("Digite qual endereco deseja entregar");
+                idEndereco = int.Parse(Console.ReadLine());
+
+                Console.WriteLine($"Deseja comprar  " +
+                                  $"\n1-Sim" +
+                                  $"\n2-Não");
+                int a = int.Parse(Console.ReadLine());
+                if (a == 1)
+                {
+                    _CarrinhoUC.SomarCompra(ClienteLogado.Id);
+                    Console.WriteLine("Agadecemos a Preferencia volte sempre.");
+                }
+            }
+            else
+            {
+                Endereco endereco = CriarEndereco();
+                _enderecoUC.CadastrarEndereco(endereco);
+                idEndereco = endereco.Id;
+            }
+        }
+    }
+    //Fim da Entega
 }

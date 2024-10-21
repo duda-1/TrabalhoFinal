@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using TrabalhoFinal._2_Repository;
 using TrabalhoFinal._3_Entidade;
 using TrabalhoFinal._3_Entidade.DTO;
+using TrabalhoFinal._3_Entidade.DTO.Carrinho;
 
 namespace TrabalhoFinal._1_Service
 {
@@ -30,6 +31,11 @@ namespace TrabalhoFinal._1_Service
         public List<CreateCarrinhoDTO> Listar()
         {
             return repository.Listar();
+        }
+
+        public List<ReadCarrinhoDTO> ListarCarrinhoDoUsuario(int usuarioId)
+        {
+            return repository.ListarCarrinhoDoUsuario(usuarioId);
         }
 
         public void Editar(Carrinho c)

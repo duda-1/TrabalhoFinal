@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Dapper;
+using Dapper.Contrib.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
 using System.Linq;
@@ -19,10 +21,10 @@ namespace TrabalhoFinal._2_Repository
             _repositoryLivro = new LivroRepository(connectioString);
             _repositoryCliente = new ClienteRepository(connectioString);
         }
-        public void Adicionar(Endereco Endereco)
+        public void Adicionar(Endereco e)
         {
             using var endereco = new SQLiteConnection(ConnectionString);
-            endereco.Insert<Endereco>(Endereco);
+            endereco.Insert<Endereco>(e);
         }
         public void Remover(int id)
         {
@@ -45,7 +47,7 @@ namespace TrabalhoFinal._2_Repository
         public List<Endereco> ListarEnderecoUsuario(int usuarioId)
         {
             using var connection = new SQLiteConnection(ConnectionString);
-            List<Endereco> list = connection.Query<Endereco>($"SELECT Id, Rua, Bairro, Numero, UsuarioId FROM Enderecos WHERE UsuarioId = {usuarioId}").ToList();
+            List<Endereco> list = connection.Query<Endereco>($"SELECT Id,Cidade, Rua, Bairro, Num, UsuarioId FROM Enderecos WHERE UsuarioId = {usuarioId}").ToList();
             return list;
         }
 
