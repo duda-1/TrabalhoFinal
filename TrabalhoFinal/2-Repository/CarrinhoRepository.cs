@@ -15,8 +15,8 @@ namespace TrabalhoFinal._2_Repository
     public class CarrinhoRepository
     {
         private readonly string ConnectionString;
-        private object _repositoryCliente;
-        private object _repositoryLivro;
+        private readonly ClienteRepository _repositoryCliente;
+        private readonly LivroRepository _repositoryLivro;
 
         public CarrinhoRepository(string s)
         {
