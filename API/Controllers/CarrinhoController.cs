@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using TrabalhoFinal._1_Service;
 using TrabalhoFinal._3_Entidade;
 using TrabalhoFinal._3_Entidade.DTO;
+using TrabalhoFinal._3_Entidade.DTO.Carrinho;
 
 namespace API.Controllers
 {
@@ -37,6 +38,13 @@ namespace API.Controllers
             return service.Listar();
         }
 
+        [HttpGet("listar-carrinho-do-usuario")]
+        public List<ReadCarrinhoDTO> ListarCarrinhoDoUsuario([FromQuery] int usuarioId)
+        {
+            return service.ListarCarrinhoDoUsuario(usuarioId);
+        }
+
+
         [HttpDelete("Remover_Carrinho")]
         public void RemoverCarrinho(int id)
         {
@@ -48,5 +56,6 @@ namespace API.Controllers
         {
             service.Editar(c);
         }
+
     }
 }

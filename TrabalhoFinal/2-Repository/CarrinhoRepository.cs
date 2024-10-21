@@ -1,4 +1,5 @@
-﻿using Dapper.Contrib.Extensions;
+﻿using Dapper;
+using Dapper.Contrib.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
@@ -7,12 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using TrabalhoFinal._3_Entidade;
 using TrabalhoFinal._3_Entidade.DTO;
+using TrabalhoFinal._3_Entidade.DTO.Carrinho;
 
 namespace TrabalhoFinal._2_Repository
 {
     public class CarrinhoRepository
     {
         private readonly string ConnectionString;
+        private object _repositoryCliente;
+        private object _repositoryLivro;
+
         public CarrinhoRepository(string s)
         {
             ConnectionString = s;
@@ -48,6 +53,27 @@ namespace TrabalhoFinal._2_Repository
                 carrinhosDTO.Add(carrinhoDTO);
             }
             return carrinhosDTO;
+        }
+
+        public List<ReadCarrinhoDTO> ListarCarrinhoDoUsuario(int usuarioId)
+        {
+            using var connection = new SQLiteConnection(ConnectionString);
+            List<Carrinho> list = connection.Query<Carrinho>($"SELECT Id, UsuarioId, ProdutoId FROM Carrinhos WHERE UsuarioId = {usuarioId}").ToList();
+            List<ReadCarrinhoDTO> listDTO = TransformarListaCarrinhoEmCarrinhoDTO(list);
+            return listDTO;
+        }
+        private List<ReadCarrinhoDTO> TransformarListaCarrinhoEmCarrinhoDTO(List<Carrinho> list)
+        {
+            List<ReadCarrinhoDTO> listDTO = new List<ReadCarrinhoDTO>();
+
+            foreach (Carrinho car in list)
+            {
+                ReadCarrinhoDTO CarrinhoDTO = new ReadCarrinhoDTO();
+                CarrinhoDTO.Livro = _repositoryLivro.BuscarPorId(car.LivroId);
+                CarrinhoDTO.Cliente = _repositoryCliente.BuscarPorId(car.ClienteId);
+                listDTO.Add(CarrinhoDTO);
+            }
+            return listDTO;
         }
 
         public void Editar(Carrinho c)
