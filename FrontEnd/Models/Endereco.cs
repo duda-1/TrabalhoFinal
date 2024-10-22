@@ -13,6 +13,7 @@ namespace FrontEnd.Models
         public string Rua { get; set; }
         public string Bairro { get; set; }
         public int Num { get; set; }
+        public int ClienteId { get; set; }  
 
         public override string ToString()
         {

@@ -184,6 +184,25 @@ public class Sistema
     // Livro e Carrinho Fim
 
     //Entega começo
+    public Endereco CriarEndereco()
+    {
+        Endereco endereco = new Endereco();
+        Console.WriteLine("Qual sua Cidade: ");
+        endereco.Cidade = Console.ReadLine();
+
+        Console.WriteLine("Qual sua Rua: ");
+        endereco.Rua = Console.ReadLine();
+
+        Console.WriteLine("Qual o Bairro: ");
+        endereco.Bairro = Console.ReadLine();
+
+        Console.WriteLine("Qual o Numero: ");
+        endereco.Num = int.Parse(Console.ReadLine());
+        endereco.ClienteId = ClienteLogado.Id;
+
+        return endereco;
+    }
+
     private void RealizarEntrega()
     {
         int idEndereco = 0;

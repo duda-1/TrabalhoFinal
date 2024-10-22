@@ -37,7 +37,8 @@ public static class InicializadorBD
                         Cidade TEXT NOT NULL,
                         Rua TEXT NOT NULL,
                         Bairro TEXT  NOT NULL,
-                        Num  INTEGER NOT NULL);";
+                        Num  INTEGER NOT NULL,
+                        ClienteId INTEGER NOT NULL);";
  
     criatTabela += @"CREATE TABLE IF NOT EXISTS Carrinhos(
                         Id INTEGER PRIMARY KEY AUTOINCREMENT,

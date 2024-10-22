@@ -13,5 +13,6 @@ namespace TrabalhoFinal._3_Entidade
         public string Rua { get; set; }
         public string Bairro { get; set; }
         public int Num { get; set; }
+        public int ClienteId { get; set; }
     }
 }
