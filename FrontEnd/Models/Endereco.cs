@@ -17,7 +17,7 @@ namespace FrontEnd.Models
 
         public override string ToString()
         {
-            return $"Id: {Id} - Nome Cidade: {Cidade} - Nome Rua: {Rua} - Nome Bairro: {Bairro} - Nº: {Num} ";
+            return $"Id: {Id} - Nome Cliente: {ClienteId} - Nome Cidade: {Cidade} - Nome Rua: {Rua} - Nome Bairro: {Bairro} - Nº: {Num} ";
         }
     }
 }

@@ -215,7 +215,7 @@ public class Sistema
         }
         else if (alternativa == 2)
         {
-            Console.WriteLine("Escolha as opção: \n 1- Listar Enderecos cadastrados" +
+            Console.WriteLine("Escolha as opção: \n 1 - Listar Enderecos cadastrados" +
                                                 "\n 2 - Cadastrar endereço");
             int opcao = int.Parse(Console.ReadLine());
             if (opcao == 1)
