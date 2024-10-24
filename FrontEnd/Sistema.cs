@@ -142,6 +142,7 @@ public class Sistema
         carrinho.LivroId = id;
         carrinho.ClienteId = ClienteLogado.Id;
         Carrinho carrinho1 = new Carrinho();
+        Console.WriteLine("Ok,  deu serto!!");
         return carrinho;
     }
 
@@ -160,7 +161,6 @@ public class Sistema
                     Console.WriteLine(l.ToString());
                 }
                 Carrinho c = CriarCarrinho();
-
                 _CarrinhoUC.CadastrarCarrinho(c);
 
                 Console.WriteLine($"1- Deseja escolher mais produto??" +
