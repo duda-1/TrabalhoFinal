@@ -13,8 +13,6 @@ namespace API.Controllers
     {
         public readonly string ConnectionString;
         public ClienteService service { get; set; }
-
-
         private readonly IMapper _mapper;
 
         public ClienteController(IMapper mapper,IConfiguration configuration)
@@ -46,7 +44,7 @@ namespace API.Controllers
         }
 
         [HttpDelete("Remover_Cliente")]
-        public void RemoverCliente([FromQuery] int id)
+        public void RemoverCliente([FromBody] int id)
         {
             service.Remover(id);
         }

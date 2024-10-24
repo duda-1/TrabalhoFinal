@@ -23,7 +23,7 @@ public class LivroControllers : ControllerBase
     }
 
     [HttpPost("Adicionar_Livro")]
-    public void AdicionmarLivro([FromQuery] CreateLivroDTO l)
+    public void AdicionmarLivro([FromBody] CreateLivroDTO l)
     {
         Livro livro = _mapper.Map<Livro>(l);
         service.Adicionar(livro);
@@ -37,13 +37,13 @@ public class LivroControllers : ControllerBase
     }
 
     [HttpDelete("Remover_Livro")]
-    public void RemoverLivro(int id)
+    public void RemoverLivro([FromBody] int id)
     {
         service.Remover(id);
     }
 
     [HttpPut("Editar_Livro")]
-    public void Editar_Livro([FromQuery]  Livro livro)
+    public void Editar_Livro([FromBody] Livro livro)
     {
        service.Editar(livro);
     }

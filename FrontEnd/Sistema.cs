@@ -55,10 +55,10 @@ public class Sistema
                     resposta = ExibirMenuPrincipalCliente();
                     if (resposta == 1)
                     {
-                        List<Livro> produto = _livroUC.ListarLivro();
-                        foreach (Livro p in produto)
+                        List<Livro> livro = _livroUC.ListarLivro();
+                        foreach (Livro l in livro)
                         {
-                            Console.WriteLine(p.ToString());
+                            Console.WriteLine(l.ToString());
                         }
                     }
                     else if (resposta == 2)
@@ -150,9 +150,6 @@ public class Sistema
         int acao = 1;
         while (acao != 0)
         {
-            Console.WriteLine($"1- Deseja escolher mais produto??" +
-                          $"\n2- Finalizar Pedido");
-            acao = int.Parse(Console.ReadLine());
 
             if (acao == 1)
             {
@@ -165,6 +162,10 @@ public class Sistema
                 Carrinho c = CriarCarrinho();
 
                 _CarrinhoUC.CadastrarCarrinho(c);
+
+                Console.WriteLine($"1- Deseja escolher mais produto??" +
+                              $"\n2- Finalizar Pedido");
+                acao = int.Parse(Console.ReadLine());
 
             }
             else

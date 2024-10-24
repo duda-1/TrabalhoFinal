@@ -12,6 +12,7 @@ namespace API
             CreateMap<CreateLivroDTO, Livro>().ReverseMap();
             CreateMap<CreateClienteDTO, Cliente>().ReverseMap();
             CreateMap<CreateCarrinhoDTO, Carrinho>().ReverseMap();
+            CreateMap<CreateEnderecoDTO, Endereco>().ReverseMap();
         }
     }
 }

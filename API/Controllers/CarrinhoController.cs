@@ -25,7 +25,7 @@ namespace API.Controllers
         }
 
         [HttpPost("Adicionar_Carrinho")]
-        public void AdicionmarCarrinho([FromQuery] CreateCarrinhoDTO c)
+        public void AdicionmarCarrinho([FromBody] CreateCarrinhoDTO c)
         {
             Carrinho Carrinho = _mapper.Map<Carrinho>(c);
             service.Adicionar(Carrinho);
@@ -39,20 +39,20 @@ namespace API.Controllers
         }
 
         [HttpGet("listar-carrinho-do-usuario")]
-        public List<ReadCarrinhoDTO> ListarCarrinhoDoUsuario([FromQuery] int usuarioId)
+        public List<ReadCarrinhoDTO> ListarCarrinhoDoUsuario([FromBody] int usuarioId)
         {
             return service.ListarCarrinhoDoUsuario(usuarioId);
         }
 
 
         [HttpDelete("Remover_Carrinho")]
-        public void RemoverCarrinho(int id)
+        public void RemoverCarrinho([FromBody] int id)
         {
             service.Remover(id);
         }
 
         [HttpPut("Editar_Carrinho")]
-        public void Editar_Carrinho([FromQuery] Carrinho c)
+        public void Editar_Carrinho([FromBody] Carrinho c)
         {
             service.Editar(c);
         }
