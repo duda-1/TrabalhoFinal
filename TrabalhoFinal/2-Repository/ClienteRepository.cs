@@ -5,11 +5,12 @@ using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TrabalhoFinal._2_Repository.Interface;
 using TrabalhoFinal._3_Entidade;
 
 namespace TrabalhoFinal._2_Repository
 {
-    public class ClienteRepository
+    public class ClienteRepository : IClienteService
     {
         private readonly string ConnectionString;
         public ClienteRepository(string s)

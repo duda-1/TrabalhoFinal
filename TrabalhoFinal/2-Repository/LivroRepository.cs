@@ -7,12 +7,13 @@ using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TrabalhoFinal._2_Repository.Interface;
 using TrabalhoFinal._3_Entidade;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace TrabalhoFinal._2_Repository
 {
-    public class LivroRepository
+    public class LivroRepository : ILivroService
     {
         private readonly string ConnectionString;
         public LivroRepository(string s)

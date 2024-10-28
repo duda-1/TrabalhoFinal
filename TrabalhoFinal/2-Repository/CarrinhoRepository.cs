@@ -6,13 +6,14 @@ using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TrabalhoFinal._2_Repository.Interface;
 using TrabalhoFinal._3_Entidade;
 using TrabalhoFinal._3_Entidade.DTO;
 using TrabalhoFinal._3_Entidade.DTO.Carrinho;
 
 namespace TrabalhoFinal._2_Repository
 {
-    public class CarrinhoRepository
+    public class CarrinhoRepository : ICarrinhoService
     {
         private readonly string ConnectionString;
         private readonly ClienteRepository _repositoryCliente;
