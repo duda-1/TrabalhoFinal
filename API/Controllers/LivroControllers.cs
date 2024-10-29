@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Data.SQLite;
 using TrabalhoFinal._1_Service;
 using TrabalhoFinal._1_Service.DTO;
+using TrabalhoFinal._1_Service.Interface;
 using TrabalhoFinal._3_Entidade;
 
 namespace API.Controllers;
@@ -11,14 +12,14 @@ namespace API.Controllers;
 [Route("[controller]")]//Data Annotations
 public class LivroControllers : ControllerBase
 {
-    public readonly string _connectionString;
-    public LivroService service { get; set; }
+    public readonly string connectionString;
+    public readonly ILivroService service;
     private readonly IMapper _mapper;
 
     public LivroControllers(IMapper mapper, IConfiguration configuration) 
     {
-        _connectionString = configuration.GetConnectionString("DefaultConnection");
-        service = new LivroService(_connectionString);
+        connectionString = configuration.GetConnectionString("DefaultConnection");
+        service = new LivroService(connectionString);
         _mapper = mapper;
     }
 

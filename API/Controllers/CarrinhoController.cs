@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using TrabalhoFinal._1_Service;
+using TrabalhoFinal._2_Repository.Interface;
 using TrabalhoFinal._3_Entidade;
 using TrabalhoFinal._3_Entidade.DTO;
 using TrabalhoFinal._3_Entidade.DTO.Carrinho;
@@ -13,7 +14,7 @@ namespace API.Controllers
     public class CarrinhoController : ControllerBase
     {
         public readonly string ConnectionString;
-        public CarrinhoService service { get; set; }
+        public readonly ICarrinhoService service;
         private readonly IMapper _mapper;
 
         public CarrinhoController(IMapper mapper,IConfiguration configuration)

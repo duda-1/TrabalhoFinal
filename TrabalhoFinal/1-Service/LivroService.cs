@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TrabalhoFinal._1_Service.Interface;
 using TrabalhoFinal._2_Repository;
 using TrabalhoFinal._2_Repository.Data;
+using TrabalhoFinal._2_Repository.Interface;
 using TrabalhoFinal._3_Entidade;
 
 namespace TrabalhoFinal._1_Service
 {
-    public  class LivroService
+    public  class LivroService : ILivroService
     {
-        public LivroRepository repository { get; set; }
+        public readonly ILivroRepository repository;
 
        public LivroService(string l)
         {

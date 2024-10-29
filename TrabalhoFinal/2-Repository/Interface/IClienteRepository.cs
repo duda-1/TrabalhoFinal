@@ -7,7 +7,7 @@ using TrabalhoFinal._3_Entidade;
 
 namespace TrabalhoFinal._2_Repository.Interface
 {
-    public interface IClienteService
+    public interface IClienteRepository
     {
        void Adicionar(Cliente c);
        void Remover(int id);

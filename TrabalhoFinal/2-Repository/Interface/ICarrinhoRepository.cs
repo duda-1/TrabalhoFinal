@@ -9,7 +9,7 @@ using TrabalhoFinal._3_Entidade.DTO.Carrinho;
 
 namespace TrabalhoFinal._2_Repository.Interface
 {
-    public interface ICarrinhoService
+    public interface ICarrinhoRepository
     {
         void Adicionar(Carrinho c);
         void Remover(int id);

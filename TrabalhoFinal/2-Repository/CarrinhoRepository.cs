@@ -13,15 +13,17 @@ using TrabalhoFinal._3_Entidade.DTO.Carrinho;
 
 namespace TrabalhoFinal._2_Repository
 {
-    public class CarrinhoRepository : ICarrinhoService
+    public class CarrinhoRepository : ICarrinhoRepository
     {
         private readonly string ConnectionString;
-        private readonly ClienteRepository _repositoryCliente;
-        private readonly LivroRepository _repositoryLivro;
+        private readonly IClienteRepository _repositoryCliente;
+        private readonly ILivroRepository _repositoryLivro;
 
         public CarrinhoRepository(string s)
         {
             ConnectionString = s;
+            _repositoryCliente = new ClienteRepository(ConnectionString);
+            _repositoryLivro = new LivroRepository(ConnectionString);
         }
 
         public void Adicionar(Carrinho c)

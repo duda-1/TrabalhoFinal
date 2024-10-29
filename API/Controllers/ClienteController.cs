@@ -2,6 +2,7 @@
 using FrontEnd.Models.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using TrabalhoFinal._1_Service;
+using TrabalhoFinal._2_Repository.Interface;
 using TrabalhoFinal._3_Entidade;
 
 namespace API.Controllers
@@ -12,7 +13,7 @@ namespace API.Controllers
     public class ClienteController : ControllerBase
     {
         public readonly string ConnectionString;
-        public ClienteService service { get; set; }
+        public readonly IClienteService service;
         private readonly IMapper _mapper;
 
         public ClienteController(IMapper mapper,IConfiguration configuration)

@@ -6,21 +6,23 @@ using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TrabalhoFinal._2_Repository.Interface;
 using TrabalhoFinal._3_Entidade;
 
 namespace TrabalhoFinal._2_Repository
 {
-    public class EnderecoRepository
+    public class EnderecoRepository : IEnderecoRepository
     {
         private readonly string ConnectionString;
-        private readonly LivroRepository _repositoryLivro;
-        private readonly ClienteRepository _repositoryCliente;
+        private readonly ILivroRepository _repositoryLivro;
+        private readonly IClienteRepository _repositoryCliente;
         public EnderecoRepository(string connectioString)
         {
             ConnectionString = connectioString;
             _repositoryLivro = new LivroRepository(connectioString);
             _repositoryCliente = new ClienteRepository(connectioString);
         }
+
         public void Adicionar(Endereco e)
         {
             using var endereco = new SQLiteConnection(ConnectionString);

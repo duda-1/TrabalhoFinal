@@ -10,9 +10,11 @@ using TrabalhoFinal._3_Entidade;
 
 namespace TrabalhoFinal._2_Repository
 {
-    public class ClienteRepository : IClienteService
+    public class ClienteRepository : IClienteRepository
     {
+
         private readonly string ConnectionString;
+
         public ClienteRepository(string s)
         {
             ConnectionString = s;

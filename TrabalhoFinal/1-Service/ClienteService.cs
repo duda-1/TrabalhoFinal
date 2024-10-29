@@ -5,18 +5,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TrabalhoFinal._2_Repository;
+using TrabalhoFinal._2_Repository.Interface;
 using TrabalhoFinal._3_Entidade;
 
 namespace TrabalhoFinal._1_Service
 {
-    public class ClienteService
+    public class ClienteService : IClienteService
     {
-        public ClienteRepository repository { get; set; }
+        public readonly IClienteRepository repository;
 
         public ClienteService(string coonn)
         {
             repository = new ClienteRepository(coonn);
         }
+
         public void Adicionar(Cliente c)
         {
             repository.Adicionar(c);

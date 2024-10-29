@@ -4,20 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TrabalhoFinal._2_Repository;
+using TrabalhoFinal._2_Repository.Interface;
 using TrabalhoFinal._3_Entidade;
 using TrabalhoFinal._3_Entidade.DTO;
 using TrabalhoFinal._3_Entidade.DTO.Carrinho;
 
 namespace TrabalhoFinal._1_Service
 {
-    public class CarrinhoService
+    public class CarrinhoService : ICarrinhoService
     {
-        public CarrinhoRepository repository { get; set; }
+        public readonly ICarrinhoRepository repository;
 
         public CarrinhoService(string coonn)
         {
             repository = new CarrinhoRepository(coonn);
         }
+
         public void Adicionar(Carrinho c)
         {
             repository.Adicionar(c);

@@ -13,9 +13,10 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace TrabalhoFinal._2_Repository
 {
-    public class LivroRepository : ILivroService
+    public class LivroRepository : ILivroRepository
     {
         private readonly string ConnectionString;
+
         public LivroRepository(string s)
         {
             ConnectionString = s;
