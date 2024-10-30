@@ -15,6 +15,7 @@ namespace TrabalhoFinal._2_Repository
 {
     public class LivroRepository : ILivroRepository
     {
+
         private readonly string ConnectionString;
 
         public LivroRepository(string s)
