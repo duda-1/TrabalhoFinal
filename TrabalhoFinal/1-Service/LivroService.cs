@@ -15,9 +15,9 @@ namespace TrabalhoFinal._1_Service
     {
         public readonly ILivroRepository repository;
 
-       public LivroService(string l)
+       public LivroService(ILivroRepository _repository)
         {
-            repository= new LivroRepository(l);
+            repository= _repository;
         }
 
         public void Adicionar(Livro l)

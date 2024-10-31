@@ -17,10 +17,9 @@ namespace API.Controllers
         public readonly ICarrinhoService service;
         private readonly IMapper _mapper;
 
-        public CarrinhoController(IMapper mapper,IConfiguration configuration)
+        public CarrinhoController(IMapper mapper, ICarrinhoService _service)
         {
-            ConnectionString = configuration.GetConnectionString("DefaultConnection");
-            service = new CarrinhoService(ConnectionString);
+            service = _service;
             _mapper= mapper;
 
         }

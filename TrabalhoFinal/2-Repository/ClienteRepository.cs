@@ -1,4 +1,5 @@
 ﻿using Dapper.Contrib.Extensions;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
@@ -15,9 +16,9 @@ namespace TrabalhoFinal._2_Repository
 
         private readonly string ConnectionString;
 
-        public ClienteRepository(string s)
+        public ClienteRepository(IConfiguration configuration)
         {
-            ConnectionString = s;
+            ConnectionString = configuration.GetConnectionString("DefaultConnection");
         }
 
         public void Adicionar(Cliente c)

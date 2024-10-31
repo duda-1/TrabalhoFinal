@@ -15,9 +15,9 @@ namespace TrabalhoFinal._1_Service
     {
         public readonly ICarrinhoRepository repository;
 
-        public CarrinhoService(string coonn)
+        public CarrinhoService(ICarrinhoRepository _repository)
         {
-            repository = new CarrinhoRepository(coonn);
+            repository = _repository;
         }
 
         public void Adicionar(Carrinho c)

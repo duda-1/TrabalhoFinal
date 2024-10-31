@@ -12,9 +12,9 @@ namespace TrabalhoFinal._1_Service
     public class EnderecoService :IEnderecoService
     {
         public readonly IEnderecoRepository repository;
-        public EnderecoService(string _config)
+        public EnderecoService(IEnderecoRepository _repository)
         {
-            repository = new EnderecoRepository(_config);
+            repository = _repository;
         }
 
         public void Adicionar(Endereco Endereco)

@@ -16,10 +16,9 @@ public class LivroControllers : ControllerBase
     public readonly ILivroService service;
     private readonly IMapper _mapper;
 
-    public LivroControllers(IMapper mapper, IConfiguration configuration) 
+    public LivroControllers(IMapper mapper, ILivroService _service) 
     {
-        connectionString = configuration.GetConnectionString("DefaultConnection");
-        service = new LivroService(connectionString);
+        service = _service;
         _mapper = mapper;
     }
 

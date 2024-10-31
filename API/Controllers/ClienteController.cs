@@ -16,11 +16,10 @@ namespace API.Controllers
         public readonly IClienteService service;
         private readonly IMapper _mapper;
 
-        public ClienteController(IMapper mapper,IConfiguration configuration)
+        public ClienteController(IMapper mapper, IClienteService _service)
         {
-            ConnectionString = configuration.GetConnectionString("DefaultConnection");
-            service = new ClienteService(ConnectionString);
-            _mapper= mapper;
+            service = _service;
+            _mapper = mapper;
 
         }
 

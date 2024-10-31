@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using Dapper.Contrib.Extensions;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
@@ -16,11 +17,11 @@ namespace TrabalhoFinal._2_Repository
         private readonly string ConnectionString;
         private readonly ILivroRepository _repositoryLivro;
         private readonly IClienteRepository _repositoryCliente;
-        public EnderecoRepository(string connectioString)
+        public EnderecoRepository(IConfiguration config, ILivroRepository repositoryLivro, IClienteRepository repositoryCliente)
         {
-            ConnectionString = connectioString;
-            _repositoryLivro = new LivroRepository(connectioString);
-            _repositoryCliente = new ClienteRepository(connectioString);
+            ConnectionString = config.GetConnectionString("DefaultConnection");
+            _repositoryLivro = repositoryLivro;
+            _repositoryCliente = repositoryCliente;
         }
 
         public void Adicionar(Endereco e)

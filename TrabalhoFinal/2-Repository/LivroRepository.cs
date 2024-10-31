@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Dapper.Contrib.Extensions;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -18,9 +19,9 @@ namespace TrabalhoFinal._2_Repository
 
         private readonly string ConnectionString;
 
-        public LivroRepository(string s)
+        public LivroRepository(IConfiguration configuration)
         {
-            ConnectionString = s;
+            ConnectionString = configuration.GetConnectionString("DefaultConnection");s
         }
 
         public void Adicionar(Livro l)

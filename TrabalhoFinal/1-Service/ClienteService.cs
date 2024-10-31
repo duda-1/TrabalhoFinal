@@ -14,9 +14,9 @@ namespace TrabalhoFinal._1_Service
     {
         public readonly IClienteRepository repository;
 
-        public ClienteService(string coonn)
+        public ClienteService(IClienteRepository _repository)
         {
-            repository = new ClienteRepository(coonn);
+            repository = _repository;
         }
 
         public void Adicionar(Cliente c)

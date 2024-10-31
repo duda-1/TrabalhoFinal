@@ -13,10 +13,9 @@ namespace API.Controllers
         public readonly  IEnderecoService _service;
         private readonly IMapper _mapper;
 
-        public EnderecoController(IConfiguration config, IMapper mapper)
+        public EnderecoController(IEnderecoService service, IMapper mapper)
         {
-            string _config = config.GetConnectionString("DefaultConnection");
-            _service = new EnderecoService(_config);
+            _service = service;
             _mapper = mapper;
         }
 
