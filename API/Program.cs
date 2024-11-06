@@ -28,6 +28,9 @@ builder.Services.AddScoped<ILivroRepository, LivroRepository>();
 builder.Services.AddScoped<ICarrinhoService, CarrinhoService>();
 builder.Services.AddScoped<ICarrinhoRepository, CarrinhoRepository>();
 
+builder.Services.AddScoped<IVendaService, VendaService>();
+builder.Services.AddScoped<IVendaRepository, VendaRepository>();
+
 var app = builder.Build();
 
 

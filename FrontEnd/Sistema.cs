@@ -16,10 +16,15 @@ public class Sistema
     public readonly LivroUC _livroUC;
     public readonly CarrinhoUC _CarrinhoUC;
     public readonly EnderecoUC _enderecoUC;
+    public readonly VendaUC _venda;
 
     public Sistema(HttpClient client)
     {
         _clienteUC= new ClienteUC(client);  
+        _livroUC= new LivroUC(client);
+        _CarrinhoUC= new CarrinhoUC(client);
+        _enderecoUC= new EnderecoUC(client);
+        _venda = new VendaUC(client);
     }
 
     public void InicializarSistema()
@@ -236,7 +241,7 @@ public class Sistema
                 if (a == 1)
                 {
                     _CarrinhoUC.SomarCompra(ClienteLogado.Id);
-                    Console.WriteLine("Agadecemos a Preferencia volte sempre.");
+                    NotaFiscalVenda();
                 }
             }
             else
@@ -248,4 +253,10 @@ public class Sistema
         }
     }
     //Fim da Entega
+
+    public void NotaFiscalVenda()
+    {
+        Console.WriteLine($"Agradecemos a preferencia");
+        //fazer uma nota fiscal mais para frente 
+    }
 }

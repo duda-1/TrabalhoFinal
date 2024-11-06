@@ -21,7 +21,7 @@ namespace TrabalhoFinal._2_Repository
 
         public LivroRepository(IConfiguration configuration)
         {
-            ConnectionString = configuration.GetConnectionString("DefaultConnection");s
+            ConnectionString = configuration.GetConnectionString("DefaultConnection");
         }
 
         public void Adicionar(Livro l)

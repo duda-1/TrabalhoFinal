@@ -25,7 +25,7 @@ namespace FrontEnd.UseCases
             HttpResponseMessage response = _client.PostAsJsonAsync("Carrinho/Adicionar_Carrinho", carrinho).Result;
         }
 
-        public List<ReadCarrinhoDTO> ListarCarrinhoUsuarioLogado(int usuarioId)
+        public  List<ReadCarrinhoDTO> ListarCarrinhoUsuarioLogado(int usuarioId)
         {
             return _client.GetFromJsonAsync<List<ReadCarrinhoDTO>>("Carrinho/listar-carrinho-do-usuario?usuarioId=" + usuarioId).Result;
         }
@@ -35,7 +35,7 @@ namespace FrontEnd.UseCases
             double total = 0;
             foreach (var ca in carrinho)
             {
-                total += ca.Livro.Preco;
+                total += ca.Livro.Preco+15;
             }
             return total;
         }

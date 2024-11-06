@@ -8,7 +8,7 @@ namespace API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class EnderecoController : Controller    
+    public class EnderecoController : ControllerBase    
     {
         public readonly  IEnderecoService _service;
         private readonly IMapper _mapper;
