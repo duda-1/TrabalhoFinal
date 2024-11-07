@@ -52,7 +52,7 @@ namespace TrabalhoFinal._2_Repository
             foreach (Carrinho c in carrinho)
             {
                 CreateCarrinhoDTO carrinhoDTO = new CreateCarrinhoDTO();
-                carrinhoDTO.ClienteId = c.ClienteId;
+                carrinhoDTO.UsuarioId = c.UsuarioId;
                 carrinhoDTO.LivroId = c.LivroId;
                 carrinhosDTO.Add(carrinhoDTO);
             }
@@ -74,7 +74,7 @@ namespace TrabalhoFinal._2_Repository
             {
                 ReadCarrinhoDTO CarrinhoDTO = new ReadCarrinhoDTO();
                 CarrinhoDTO.Livro = _repositoryLivro.BuscarPorId(car.LivroId);
-                CarrinhoDTO.Cliente = _repositoryCliente.BuscarPorId(car.ClienteId);
+                CarrinhoDTO.Cliente = _repositoryCliente.BuscarPorId(car.UsuarioId);
                 listDTO.Add(CarrinhoDTO);
             }
             return listDTO;

@@ -39,7 +39,7 @@ namespace API.Controllers
         }
 
         [HttpGet("listar-carrinho-do-usuario")]
-        public List<ReadCarrinhoDTO> ListarCarrinhoDoUsuario([FromBody] int usuarioId)
+        public List<ReadCarrinhoDTO> ListarCarrinhoDoUsuario([FromQuery] int usuarioId)
         {
             return service.ListarCarrinhoDoUsuario(usuarioId);
         }
