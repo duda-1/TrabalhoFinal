@@ -1,4 +1,5 @@
 using API;
+using Microsoft.OpenApi.Models;
 using TrabalhoFinal;
 using TrabalhoFinal._1_Service;
 using TrabalhoFinal._1_Service.Interface;
@@ -11,7 +12,21 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options =>
+{
+    // Informa ao Swagger para incluir o arquivo XML gerado
+    var xmlFile = "MinhaAPI.xml"; // Nome do arquivo XML gerado
+    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+    options.IncludeXmlComments(xmlPath);
+
+    options.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Title = "Biblioteca",
+        Version = "v1",
+        Description = "Neste site vamos vender livros de todos os estilos "//descrição para o site
+    });
+});
+
 InicializadorBD.Inicializar();
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 
@@ -37,7 +52,10 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(options =>
+    {
+        options.SwaggerEndpoint("/swagger/v1/swagger.json", "Minha API v1");
+    });
 }
 
 app.UseHttpsRedirection();
