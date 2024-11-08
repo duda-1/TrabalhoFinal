@@ -23,13 +23,31 @@ namespace API.Controllers
 
         }
 
+        /// <summary>
+        /// Adicionar um novo Cliente ao Banco
+        /// </summary>
+        /// <param name="c"></param>
         [HttpPost("Adicionar_Cliente")]
-        public void AdicionmarCliente([FromBody] CreateClienteDTO c)
+        public IActionResult AdicionmarCliente([FromBody] CreateClienteDTO c)
         {
-            Cliente cliente = _mapper.Map<Cliente>(c);
-            service.Adicionar(cliente);
+            try
+            {
+                Cliente cliente = _mapper.Map<Cliente>(c);
+                service.Adicionar(cliente);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+
+                return BadRequest($"Ocorreu um erro ao adicionar Usuario, o erro foi \n{e.Message}");
+            }
         }
 
+        /// <summary>
+        /// Um Cliente que já e cadastrado fazer login em sua conta
+        /// </summary>
+        /// <param name="clienteLogin"></param>
+        /// <returns></returns>
         [HttpPost("fazer-login")]
         public Cliente FazerLogin([FromBody] ClienteLoginDTO clienteLogin)
         {
@@ -37,22 +55,52 @@ namespace API.Controllers
             return cliente;
         }
 
+        /// <summary>
+        /// Listar todos os Clientes
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("Listar_Cliente")]
         public List<Cliente> ListarCliente()
         {
             return service.Listar();
         }
 
+        /// <summary>
+        /// Deletar um Cliente
+        /// </summary>
+        /// <param name="id"></param>
         [HttpDelete("Remover_Cliente")]
-        public void RemoverCliente([FromBody] int id)
+        public IActionResult RemoverCliente([FromBody] int id)
         {
-            service.Remover(id);
+            try
+            {
+                service.Remover(id);
+                return NoContent();
+            }
+            catch (Exception e)
+            {
+
+                return BadRequest($"Ocorreu um erro ao adicionar Usuario, o erro foi \n{e.Message}");
+            }
         }
 
+        /// <summary>
+        /// Editar dado que esta errado
+        /// </summary>
+        /// <param name="c"></param>
         [HttpPut("Editar_Cliente")]
-        public void Editar_Cliente([FromBody] Cliente c)
+        public IActionResult Editar_Cliente([FromBody] Cliente c)
         {
-            service.Editar(c);
+            try
+            {
+                service.Editar(c);
+                return NoContent();
+            }
+            catch (Exception e)
+            {
+
+                return BadRequest($"Ocorreu um erro ao adicionar Usuario, o erro foi \n{e.Message}");
+            }
         }
     }
 }

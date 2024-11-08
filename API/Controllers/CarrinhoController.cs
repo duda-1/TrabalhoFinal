@@ -24,37 +24,91 @@ namespace API.Controllers
 
         }
 
+        /// <summary>
+        /// Adicionar um novo carrinho 
+        /// </summary>
+        /// <param name="c"></param>
         [HttpPost("Adicionar_Carrinho")]
-        public void AdicionmarCarrinho([FromBody] CreateCarrinhoDTO c)
+        public IActionResult AdicionmarCarrinho([FromBody] CreateCarrinhoDTO c)
         {
-            Carrinho Carrinho = _mapper.Map<Carrinho>(c);
-            service.Adicionar(Carrinho);
+            try
+            {
+                Carrinho Carrinho = _mapper.Map<Carrinho>(c);
+                service.Adicionar(Carrinho);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return BadRequest($"Ocorreu um erro ao adicionar Usuario, o erro foi \n{e.Message}");
+            }
         }
 
-
+        /// <summary>
+        /// Listar todos os carrinho 
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("Listar_Carrinho")]
         public List<CreateCarrinhoDTO> ListarCarrinho()
         {
-            return service.Listar();
+            try
+            {
+               return service.Listar();
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"Ocorreu um erro ao adicionar Usuario, o erro foi \n{e.Message}");
+            }
         }
 
+        /// <summary>
+        /// Listar o carrinho que o usuario que esta logado 
+        /// </summary>
+        /// <param name="usuarioId"></param>
+        /// <returns></returns>
         [HttpGet("listar-carrinho-do-usuario")]
         public List<ReadCarrinhoDTO> ListarCarrinhoDoUsuario([FromQuery] int usuarioId)
         {
             return service.ListarCarrinhoDoUsuario(usuarioId);
         }
 
-
+        /// <summary>
+        /// Deletar um Carrinho 
+        /// </summary>
+        /// <param name="id"></param>
         [HttpDelete("Remover_Carrinho")]
-        public void RemoverCarrinho([FromBody] int id)
+        public IActionResult RemoverCarrinho([FromBody] int id)
         {
-            service.Remover(id);
+            try
+            {
+                service.Remover(id);
+                return NoContent();
+            }
+            catch (Exception e)
+            {
+
+                return BadRequest($"Ocorreu um erro ao adicionar Usuario, o erro foi \n{e.Message}")
+            }
+
         }
 
+        /// <summary>
+        /// Editar dado que esta errado
+        /// </summary>
+        /// <param name="c"></param>
         [HttpPut("Editar_Carrinho")]
-        public void Editar_Carrinho([FromBody] Carrinho c)
+        public IActionResult Editar_Carrinho([FromBody] Carrinho c)
         {
-            service.Editar(c);
+            try
+            {
+                service.Editar(c);
+                return NoContent();
+            }
+            catch (Exception e)
+            {
+
+                return BadRequest($"Ocorreu um erro ao adicionar Usuario, o erro foi \n{e.Message}")
+            }
+
         }
 
     }

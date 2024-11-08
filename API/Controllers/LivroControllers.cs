@@ -22,29 +22,71 @@ public class LivroControllers : ControllerBase
         _mapper = mapper;
     }
 
+    /// <summary>
+    /// Adicionar livro ao banco de dados
+    /// </summary>
+    /// <param name="l"></param>
     [HttpPost("Adicionar_Livro")]
-    public void AdicionmarLivro([FromBody] CreateLivroDTO l)
+    public IActionResult AdicionmarLivro([FromBody] CreateLivroDTO l)
     {
-        Livro livro = _mapper.Map<Livro>(l);
-        service.Adicionar(livro);
+        try
+        {
+            Livro livro = _mapper.Map<Livro>(l);
+            service.Adicionar(livro);
+            return Ok();
+        }
+        catch (Exception e)
+        {
+
+            return BadRequest($"Ocorreu um erro ao adicionar Usuario, o erro foi \n{e.Message}");
+        }
     }
 
-
+    /// <summary>
+    /// Listar todos os livros disponiveis do banco
+    /// </summary>
+    /// <returns></returns>
     [HttpGet("Listar_Livro")]
     public List<Livro> ListarTime()
     {
        return service.Listar();
     }
 
+    /// <summary>
+    /// Excluir um livro do Banco de dados
+    /// </summary>
+    /// <param name="id"></param>
     [HttpDelete("Remover_Livro")]
-    public void RemoverLivro([FromBody] int id)
+    public IActionResult RemoverLivro([FromBody] int id)
     {
-        service.Remover(id);
+        try
+        {
+            service.Remover(id);
+            return NoContent();
+        }
+        catch (Exception e)
+        {
+
+            return BadRequest($"Ocorreu um erro ao adicionar Usuario, o erro foi \n{e.Message}");
+        }
     }
 
+    /// <summary>
+    /// Editar dado que esta errado
+    /// </summary>
+    /// <param name="livro"></param>
     [HttpPut("Editar_Livro")]
-    public void Editar_Livro([FromBody] Livro livro)
+    public IActionResult Editar_Livro([FromBody] Livro livro)
     {
-       service.Editar(livro);
+        try
+        {
+            service.Editar(livro);
+            return NoContent();
+        }
+        catch (Exception e)
+        {
+
+            return BadRequest($"Ocorreu um erro ao adicionar Usuario, o erro foi \n{e.Message}");
+        }
     }
 }

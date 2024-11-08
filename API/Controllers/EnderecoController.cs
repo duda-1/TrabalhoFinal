@@ -19,36 +19,77 @@ namespace API.Controllers
             _mapper = mapper;
         }
 
+        /// <summary>
+        /// Adicionar um novo Endereço no Banco 
+        /// </summary>
+        /// <param name="carrinhoDTO"></param>
+        /// <returns></returns>
         [HttpPost("adicionar-endereco")]
         public Endereco AdicionarEndereco([FromBody] Endereco carrinhoDTO)
         {
+
             Endereco carrinho = _mapper.Map<Endereco>(carrinhoDTO);
             _service.Adicionar(carrinho);
             return carrinho;
         }
 
+        /// <summary>
+        /// Listar todos os Endereços sem estar logado
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("listar-endereco")]
         public List<Endereco> ListarEndereco()
         {
             return _service.Listar();
         }
 
+        /// <summary>
+        /// Listar o Endereço do Usuário que esta logado
+        /// </summary>
+        /// <param name="usuarioId"></param>
+        /// <returns></returns>
         [HttpGet("listar-endereco-usuario")]
         public List<Endereco> ListarEnderecoUsuario([FromBody] int usuarioId)
         {
             return _service.ListarEnderecoUsuario(usuarioId);
         }
 
+        /// <summary>
+        /// Editar dado que esta errado
+        /// </summary>
+        /// <param name="c"></param>
         [HttpPut("editar-endereco")]
-        public void EditarEndereco([FromBody] Endereco c)
+        public IActionResult EditarEndereco([FromBody] Endereco c)
         {
-            _service.Editar(c);
+            try
+            {
+                _service.Editar(c);
+                return NoContent();
+            }
+            catch (Exception e)
+            {
+
+                return BadRequest($"Ocorreu um erro ao adicionar Usuario, o erro foi \n{e.Message}");
+            }
         }
 
+        /// <summary>
+        /// Deletar um endereço
+        /// </summary>
+        /// <param name="id"></param>
         [HttpDelete("deletar-endereco")]
-        public void DeletarEndereco([FromBody] int id)
+        public IActionResult DeletarEndereco([FromBody] int id)
         {
-            _service.Remover(id);
+            try
+            {
+                _service.Remover(id);
+                return NoContent();
+            }
+            catch (Exception e)
+            {
+
+                return BadRequest($"Ocorreu um erro ao adicionar Usuario, o erro foi \n{e.Message}");
+            }
         }
     }
 }
