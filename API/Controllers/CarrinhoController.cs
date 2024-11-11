@@ -94,7 +94,7 @@ namespace API.Controllers
             catch (Exception e)
             {
 
-                return BadRequest($"Ocorreu um erro ao adicionar Usuario, o erro foi \n{e.Message}")
+                return BadRequest($"Ocorreu um erro ao adicionar Usuario, o erro foi \n{e.Message}");
             }
 
         }
@@ -114,7 +114,7 @@ namespace API.Controllers
             catch (Exception e)
             {
 
-                return BadRequest($"Ocorreu um erro ao adicionar Usuario, o erro foi \n{e.Message}")
+                return BadRequest($"Ocorreu um erro ao adicionar Usuario, o erro foi \n{e.Message}");
             }
 
         }
