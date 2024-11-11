@@ -51,8 +51,16 @@ namespace API.Controllers
         [HttpPost("fazer-login")]
         public Cliente FazerLogin([FromBody] ClienteLoginDTO clienteLogin)
         {
-            Cliente cliente = service.FazerLogin(clienteLogin);
-            return cliente;
+            try
+            {
+                Cliente cliente = service.FazerLogin(clienteLogin);
+                return cliente;
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"Ocorreu um erro ao adicionar Usuario, o erro foi \n{e.Message}");
+            }
+            
         }
 
         /// <summary>
@@ -62,7 +70,15 @@ namespace API.Controllers
         [HttpGet("Listar_Cliente")]
         public List<Cliente> ListarCliente()
         {
-            return service.Listar();
+            try
+            {
+                return service.Listar();
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"Ocorreu um erro ao adicionar Usuario, o erro foi \n{e.Message}");
+            }
+           
         }
 
         /// <summary>

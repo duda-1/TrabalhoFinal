@@ -49,7 +49,15 @@ public class LivroControllers : ControllerBase
     [HttpGet("Listar_Livro")]
     public List<Livro> ListarTime()
     {
-       return service.Listar();
+        try
+        {
+            return service.Listar();
+        }
+        catch (Exception e)
+        {
+            throw new Exception($"Ocorreu um erro ao adicionar Usuario, o erro foi \n{e.Message}");
+        }
+
     }
 
     /// <summary>

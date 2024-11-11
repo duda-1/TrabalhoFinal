@@ -68,7 +68,15 @@ namespace API.Controllers
         [HttpGet("listar-carrinho-do-usuario")]
         public List<ReadCarrinhoDTO> ListarCarrinhoDoUsuario([FromQuery] int usuarioId)
         {
-            return service.ListarCarrinhoDoUsuario(usuarioId);
+            try
+            {
+                return service.ListarCarrinhoDoUsuario(usuarioId);
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"Ocorreu um erro ao adicionar Usuario, o erro foi \n{e.Message}");
+            }
+         
         }
 
         /// <summary>

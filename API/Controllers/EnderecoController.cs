@@ -27,10 +27,17 @@ namespace API.Controllers
         [HttpPost("adicionar-endereco")]
         public Endereco AdicionarEndereco([FromBody] Endereco carrinhoDTO)
         {
-
-            Endereco carrinho = _mapper.Map<Endereco>(carrinhoDTO);
-            _service.Adicionar(carrinho);
-            return carrinho;
+            try
+            {
+                Endereco carrinho = _mapper.Map<Endereco>(carrinhoDTO);
+                _service.Adicionar(carrinho);
+                return carrinho;
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"Ocorreu um erro ao adicionar Usuario, o erro foi \n{e.Message}");
+            }
+           
         }
 
         /// <summary>
@@ -40,7 +47,15 @@ namespace API.Controllers
         [HttpGet("listar-endereco")]
         public List<Endereco> ListarEndereco()
         {
-            return _service.Listar();
+            try
+            {
+                return _service.Listar();
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"Ocorreu um erro ao adicionar Usuario, o erro foi \n{e.Message}");
+            }
+
         }
 
         /// <summary>
@@ -51,7 +66,15 @@ namespace API.Controllers
         [HttpGet("listar-endereco-usuario")]
         public List<Endereco> ListarEnderecoUsuario([FromBody] int usuarioId)
         {
-            return _service.ListarEnderecoUsuario(usuarioId);
+            try
+            {
+                return _service.ListarEnderecoUsuario(usuarioId);
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"Ocorreu um erro ao adicionar Usuario, o erro foi \n{e.Message}");
+            }
+
         }
 
         /// <summary>
