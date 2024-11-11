@@ -17,28 +17,81 @@ namespace API.Controllers
             _mapper = mapper;
         }
 
+        /// <summary>
+        ///  Adicionar uma nova venda no Banco 
+        /// </summary>
+        /// <param name="v"></param>
+        /// <returns></returns>
         [HttpPost("adicionar-venda")]
-        public void AdicionarVenda(Venda v)
+        public IActionResult AdicionarVenda(Venda v)
         {
-         
+            try
+            {
+                Venda venda = _mapper.Map<Venda>(v);
+                _service.AdicionarVenda(venda);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return BadRequest($"Ocorreu um erro ao adicionar Usuario, o erro foi \n{e.Message}");
+            }
         }
 
+        /// <summary>
+        /// Listar Todad as Vendas Salvas
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         [HttpGet("listar-venda")]
         public List<Venda> ListarVenda()
         {
-            return null;
+            try
+            {
+                return _service.ListarVenda();
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"Ocorreu um erro ao adicionar Usuario, o erro foi \n{e.Message}");
+            }
+
         }
 
+        /// <summary>
+        /// Editar elgum erro em uma venda
+        /// </summary>
+        /// <param name="v"></param>
+        /// <returns></returns>
         [HttpPut("editar-venda")]
-        public void EditarVenda()
+        public IActionResult EditarVenda(Venda v)
         {
-           
+            try
+            {
+                _service.EditarVenda(v);
+                return NoContent();
+            }
+            catch (Exception e)
+            {
+                return BadRequest($"Ocorreu um erro ao adicionar Usuario, o erro foi \n{e.Message}");
+            }
         }
 
+        /// <summary>
+        /// Deletar uma Venda do Banco
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("deletar-venda")]
-        public void DeletarVenda()
+        public IActionResult DeletarVenda(int id)
         {
-            
+            try
+            {
+                _service.ExcluirVenda(id);
+                return NoContent();
+            }
+            catch (Exception e)
+            {
+                return BadRequest($"Ocorreu um erro ao adicionar Usuario, o erro foi \n{e.Message}");
+            }
         }
     }
 }
