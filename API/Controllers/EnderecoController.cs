@@ -101,7 +101,7 @@ namespace API.Controllers
         /// </summary>
         /// <param name="id"></param>
         [HttpDelete("deletar-endereco")]
-        public IActionResult DeletarEndereco([FromBody] int id)
+        public IActionResult DeletarEndereco( int id)
         {
             try
             {

@@ -65,7 +65,7 @@ public class LivroControllers : ControllerBase
     /// </summary>
     /// <param name="id"></param>
     [HttpDelete("Remover_Livro")]
-    public IActionResult RemoverLivro([FromBody] int id)
+    public IActionResult RemoverLivro( int id)
     {
         try
         {

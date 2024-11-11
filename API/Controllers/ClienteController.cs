@@ -86,7 +86,7 @@ namespace API.Controllers
         /// </summary>
         /// <param name="id"></param>
         [HttpDelete("Remover_Cliente")]
-        public IActionResult RemoverCliente([FromBody] int id)
+        public IActionResult RemoverCliente( int id)
         {
             try
             {

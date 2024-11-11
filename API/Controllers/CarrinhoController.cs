@@ -84,7 +84,7 @@ namespace API.Controllers
         /// </summary>
         /// <param name="id"></param>
         [HttpDelete("Remover_Carrinho")]
-        public IActionResult RemoverCarrinho([FromBody] int id)
+        public IActionResult RemoverCarrinho( int id)
         {
             try
             {
