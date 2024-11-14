@@ -38,7 +38,7 @@ public class LivroControllers : ControllerBase
         catch (Exception e)
         {
 
-            return BadRequest($"Ocorreu um erro ao adicionar Usuario, o erro foi \n{e.Message}");
+            return BadRequest($"Ocorreu um erro ao adicionar Livro, o erro foi \n{e.Message}");
         }
     }
 
@@ -55,7 +55,7 @@ public class LivroControllers : ControllerBase
         }
         catch (Exception e)
         {
-            throw new Exception($"Ocorreu um erro ao adicionar Usuario, o erro foi \n{e.Message}");
+            throw new Exception($"Ocorreu um erro ao adicionar Livro, o erro foi \n{e.Message}");
         }
 
     }
@@ -75,7 +75,7 @@ public class LivroControllers : ControllerBase
         catch (Exception e)
         {
 
-            return BadRequest($"Ocorreu um erro ao adicionar Usuario, o erro foi \n{e.Message}");
+            return BadRequest($"Ocorreu um erro ao adicionar Livro, o erro foi \n{e.Message}");
         }
     }
 
@@ -94,7 +94,7 @@ public class LivroControllers : ControllerBase
         catch (Exception e)
         {
 
-            return BadRequest($"Ocorreu um erro ao adicionar Usuario, o erro foi \n{e.Message}");
+            return BadRequest($"Ocorreu um erro ao adicionar Livro, o erro foi \n{e.Message}");
         }
     }
 }

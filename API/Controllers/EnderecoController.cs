@@ -35,7 +35,7 @@ namespace API.Controllers
             }
             catch (Exception e)
             {
-                throw new Exception($"Ocorreu um erro ao adicionar Usuario, o erro foi \n{e.Message}");
+                throw new Exception($"Ocorreu um erro ao adicionar Endereço, o erro foi \n{e.Message}");
             }
            
         }
@@ -53,7 +53,7 @@ namespace API.Controllers
             }
             catch (Exception e)
             {
-                throw new Exception($"Ocorreu um erro ao adicionar Usuario, o erro foi \n{e.Message}");
+                throw new Exception($"Ocorreu um erro ao adicionar Endereço, o erro foi \n{e.Message}");
             }
 
         }
@@ -72,7 +72,7 @@ namespace API.Controllers
             }
             catch (Exception e)
             {
-                throw new Exception($"Ocorreu um erro ao adicionar Usuario, o erro foi \n{e.Message}");
+                throw new Exception($"Ocorreu um erro ao adicionar Endereço, o erro foi \n{e.Message}");
             }
 
         }
@@ -92,7 +92,7 @@ namespace API.Controllers
             catch (Exception e)
             {
 
-                return BadRequest($"Ocorreu um erro ao adicionar Usuario, o erro foi \n{e.Message}");
+                return BadRequest($"Ocorreu um erro ao adicionar Endereço, o erro foi \n{e.Message}");
             }
         }
 
@@ -111,7 +111,7 @@ namespace API.Controllers
             catch (Exception e)
             {
 
-                return BadRequest($"Ocorreu um erro ao adicionar Usuario, o erro foi \n{e.Message}");
+                return BadRequest($"Ocorreu um erro ao adicionar Endereço, o erro foi \n{e.Message}");
             }
         }
     }
