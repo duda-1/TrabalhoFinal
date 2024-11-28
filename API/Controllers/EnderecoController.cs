@@ -64,11 +64,11 @@ namespace API.Controllers
         /// <param name="usuarioId"></param>
         /// <returns></returns>
         [HttpGet("listar-endereco-usuario")]
-        public List<Endereco> ListarEnderecoUsuario([FromBody] int usuarioId)
+        public List<Endereco> ListarEnderecoUsuario([FromQuery] int clienteId)
         {
             try
             {
-                return _service.ListarEnderecoUsuario(usuarioId);
+                return _service.ListarEnderecoUsuario(clienteId);
             }
             catch (Exception e)
             {

@@ -17,7 +17,7 @@ namespace FrontEnd.UseCases
         }
         public List<Endereco> ListarEnderecosDoUsuario(int usuarioId)
         {
-            return _client.GetFromJsonAsync<List<Endereco>>("Endereco/listar-endereco-usuario?usuarioId=" + usuarioId).Result;
+            return _client.GetFromJsonAsync<List<Endereco>>("Endereco/listar-endereco-usuario?clienteId=" + usuarioId).Result;
         }
 
         public Endereco CadastrarEndereco(Endereco endereco)

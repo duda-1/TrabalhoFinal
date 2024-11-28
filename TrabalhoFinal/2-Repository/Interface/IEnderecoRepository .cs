@@ -13,7 +13,7 @@ namespace TrabalhoFinal._2_Repository.Interface
         void Remover(int id);
         void Editar(Endereco Endereco);
         List<Endereco> Listar();
-        List<Endereco> ListarEnderecoUsuario(int usuarioId);
+        List<Endereco> ListarEnderecoUsuario(int clienteId);
         Endereco BuscarPorId(int id);
     }
 }

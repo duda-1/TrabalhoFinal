@@ -12,7 +12,7 @@ namespace TrabalhoFinal._2_Repository.Interface
         void Adicionar(Endereco Endereco);
         void Remover(int id);
         List<Endereco> Listar();
-        List<Endereco> ListarEnderecoUsuario(int usuarioId);
+        List<Endereco> ListarEnderecoUsuario(int clienteId);
         Endereco BuscarTimePorId(int id);
         void Editar(Endereco editPessoa);
     }

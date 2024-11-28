@@ -47,10 +47,10 @@ namespace TrabalhoFinal._2_Repository
             return list;
         }
 
-        public List<Endereco> ListarEnderecoUsuario(int usuarioId)
+        public List<Endereco> ListarEnderecoUsuario(int clienteId)
         {
             using var connection = new SQLiteConnection(ConnectionString);
-            List<Endereco> list = connection.Query<Endereco>($"SELECT Id,Cidade, Rua, Bairro, Num, UsuarioId FROM Enderecos WHERE UsuarioId = {usuarioId}").ToList();
+            List<Endereco> list = connection.Query<Endereco>($"SELECT Id,Cidade, Rua, Bairro, Num, ClienteId FROM Enderecos WHERE ClienteId = {clienteId}").ToList();
             return list;
         }
 

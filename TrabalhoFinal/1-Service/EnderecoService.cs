@@ -32,9 +32,9 @@ namespace TrabalhoFinal._1_Service
             return repository.Listar();
         }
 
-        public List<Endereco> ListarEnderecoUsuario(int usuarioId)
+        public List<Endereco> ListarEnderecoUsuario(int clienteId)
         {
-            return repository.ListarEnderecoUsuario(usuarioId);
+            return repository.ListarEnderecoUsuario(clienteId);
         }
 
         public Endereco BuscarTimePorId(int id)
