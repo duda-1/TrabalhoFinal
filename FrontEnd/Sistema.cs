@@ -20,10 +20,10 @@ public class Sistema
 
     public Sistema(HttpClient client)
     {
-        _clienteUC= new ClienteUC(client);  
-        _livroUC= new LivroUC(client);
-        _CarrinhoUC= new CarrinhoUC(client);
-        _enderecoUC= new EnderecoUC(client);
+        _clienteUC = new ClienteUC(client);
+        _livroUC = new LivroUC(client);
+        _CarrinhoUC = new CarrinhoUC(client);
+        _enderecoUC = new EnderecoUC(client);
         _venda = new VendaUC(client);
     }
 
@@ -55,23 +55,23 @@ public class Sistema
                 }
             }
 
-            else 
+            else
+            {
+                resposta = ExibirMenuPrincipalCliente();
+                if (resposta == 1)
                 {
-                    resposta = ExibirMenuPrincipalCliente();
-                    if (resposta == 1)
+                    List<Livro> livro = _livroUC.ListarLivro();
+                    foreach (Livro l in livro)
                     {
-                        List<Livro> livro = _livroUC.ListarLivro();
-                        foreach (Livro l in livro)
-                        {
-                            Console.WriteLine(l.ToString());
-                        }
-                    }
-                    else if (resposta == 2)
-                    {
-                        RealizarCompra();
+                        Console.WriteLine(l.ToString());
                     }
                 }
-            
+                else if (resposta == 2)
+                {
+                    RealizarCompra();
+                }
+            }
+
 
         }
     }
@@ -102,7 +102,7 @@ public class Sistema
         cliente.Email = Console.ReadLine();
 
         Console.WriteLine("Digite seu senha: ");
-        cliente.Senha = Console.ReadLine();   
+        cliente.Senha = Console.ReadLine();
 
         return cliente;
     }
@@ -112,8 +112,8 @@ public class Sistema
         string usuarioName = Console.ReadLine();
         Console.WriteLine("Digite sua senha: ");
         string senha = Console.ReadLine();
-       ClienteLoginDTO usuDTO = new ClienteLoginDTO
-       {
+        ClienteLoginDTO usuDTO = new ClienteLoginDTO
+        {
             UsuarioName = usuarioName,
             Senha = senha
         };
@@ -123,7 +123,7 @@ public class Sistema
             Console.WriteLine("Usuário ou senha inválidos!!!");
         }
 
-       ClienteLogado = cliente;
+        ClienteLogado = cliente;
     }
     // Login Cliente Fim
 
@@ -132,7 +132,7 @@ public class Sistema
     public int ExibirMenuPrincipalCliente()
     {
         Console.WriteLine("------------------Produto------------------");
-        Console.WriteLine("1 - Listar Livros");
+        Console.WriteLine("1 - Listar Livros");//Alterar
         Console.WriteLine("2 - Realizar uma compra");
         Console.WriteLine("Qual opição de seja realizar??");
         return int.Parse(Console.ReadLine());
@@ -168,8 +168,8 @@ public class Sistema
                 Carrinho c = CriarCarrinho();
                 _CarrinhoUC.CadastrarCarrinho(c);
 
-                Console.WriteLine($"1- Deseja escolher mais produto??" +
-                              $"\n2- Finalizar Pedido");
+                Console.WriteLine($"1- Deseja escolher mais produto" +
+                                  $"\n2- Finalizar Pedido");
                 acao = int.Parse(Console.ReadLine());
 
             }
@@ -232,16 +232,17 @@ public class Sistema
                     Console.WriteLine(end.ToString());
                 }
                 Console.WriteLine("Digite qual endereco deseja entregar");
+
                 idEndereco = int.Parse(Console.ReadLine());
 
-                Console.WriteLine($"Deseja comprar  " +
+
+                Console.WriteLine($"Deseja Finalizar esta Compra? " +
                                   $"\n1-Sim" +
                                   $"\n2-Não");
                 int a = int.Parse(Console.ReadLine());
                 if (a == 1)
                 {
                     _CarrinhoUC.SomarCompra(ClienteLogado.Id);
-                    NotaFiscalVenda();
                 }
             }
             else
@@ -254,9 +255,14 @@ public class Sistema
     }
     //Fim da Entega
 
-    public void NotaFiscalVenda()
-    {
-        Console.WriteLine($"Agradecemos a preferencia");
-        //fazer uma nota fiscal mais para frente 
-    }
+   //public double NotaFiscalVenda()
+   //{
+   //    //double valor = 0;
+   //    //List<ReadCarrinhoDTO> carrinhosDTO = _CarrinhoUC.ListarCarrinhoUsuarioLogado(ClienteLogado.Id);
+   //    //foreach (ReadCarrinhoDTO car in carrinhosDTO)
+   //    //{
+   //    //    valor += car.Livro.Preco;
+   //    //}
+   //    //return valor;
+   //}
 }

@@ -31,13 +31,15 @@ namespace FrontEnd.UseCases
         }
         public double SomarCompra(int UsuarioId)
         {
-            List<ReadCarrinhoDTO> carrinho = ListarCarrinhoUsuarioLogado(UsuarioId);
-            double total = 0;
-            foreach (var ca in carrinho)
+            double valor = 0;
+            List<ReadCarrinhoDTO> carrinhosDTO = ListarCarrinhoUsuarioLogado(UsuarioId);
+            foreach (ReadCarrinhoDTO car in carrinhosDTO)
             {
-                total += ca.Livro.Preco+15;
+                valor += car.Livro.Preco ;
             }
-            return total;
+            return valor;
         }
     }
+ 
 }
+
