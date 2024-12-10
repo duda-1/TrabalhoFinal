@@ -258,7 +258,7 @@ public class Sistema
 
     public double SomarCompra()
     {
-        double valor = 100;
+        double valor = 0;
         List<ReadCarrinhoDTO> carrinhosDTO = _CarrinhoUC.ListarCarrinhoUsuarioLogado(ClienteLogado.Id);
      
         foreach (ReadCarrinhoDTO car in carrinhosDTO)

@@ -11,7 +11,6 @@ namespace FrontEnd.Models
         public int Id { get; set; }
         public int ClienteId { get; set; }
         public int LivroId { get; set; }
-        public int PrecoId { get; set; }
 
         public override string ToString()
         {

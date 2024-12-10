@@ -62,7 +62,7 @@ namespace TrabalhoFinal._2_Repository
         public List<ReadCarrinhoDTO> ListarCarrinhoDoUsuario(int usuarioId)
         {
             using var connection = new SQLiteConnection(ConnectionString);
-            List<Carrinho> list = connection.Query<Carrinho>($"SELECT Id, UsuarioId, ProdutoId FROM Carrinhos WHERE UsuarioId = {usuarioId}").ToList();
+            List<Carrinho> list = connection.Query<Carrinho>($"SELECT Id, UsuarioId FROM Carrinhos WHERE UsuarioId = {usuarioId}").ToList();
             List<ReadCarrinhoDTO> listDTO = TransformarListaCarrinhoEmCarrinhoDTO(list);
             return listDTO;
         }

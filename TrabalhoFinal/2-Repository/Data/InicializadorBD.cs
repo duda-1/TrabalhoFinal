@@ -43,13 +43,10 @@ public static class InicializadorBD
     criatTabela += @"CREATE TABLE IF NOT EXISTS Carrinhos(
                         Id INTEGER PRIMARY KEY AUTOINCREMENT,
                         UsuarioId INTEGER NOT NULL,
-                        LivroId INTEGER NOT NULL,
-                        ProdutoId INTERGE NOT NULL,
-                       PrecoId INTEGER NOT NULL);";
+                        LivroId INTEGER NOT NULL);";
 
     criatTabela += @"CREATE TABLE IF NOT EXISTS Vendas(
                        Id INTEGER PRIMARY KEY AUTOINCREMENT,
-                       ValorFret INTEGER NOT NULL,
                        ValorTotal INTEGER NOT NULL,
                        FormaPagamento INTEGER NOT NULL,
                        UsuarioNameId INTEGER NOT NULL,
