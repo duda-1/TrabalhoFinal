@@ -29,16 +29,7 @@ namespace FrontEnd.UseCases
         {
             return _client.GetFromJsonAsync<List<ReadCarrinhoDTO>>("Carrinho/listar-carrinho-do-usuario?usuarioId=" + usuarioId).Result;
         }
-        public double SomarCompra(int UsuarioId)
-        {
-            double valor = 0;
-            List<ReadCarrinhoDTO> carrinhosDTO = ListarCarrinhoUsuarioLogado(UsuarioId);
-            foreach (ReadCarrinhoDTO car in carrinhosDTO)
-            {
-                valor += car.Livro.Preco ;
-            }
-            return valor;
-        }
+      
     }
  
 }

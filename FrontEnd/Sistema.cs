@@ -221,9 +221,11 @@ public class Sistema
         }
         else if (alternativa == 2)
         {
+            int opcao = -1;
             Console.WriteLine("Escolha as opção: \n 1 - Listar Enderecos cadastrados" +
                                                 "\n 2 - Cadastrar endereço");
-            int opcao = int.Parse(Console.ReadLine());
+            opcao = int.Parse(Console.ReadLine());
+
             if (opcao == 1)
             {
                 List<Endereco> enderecos = _enderecoUC.ListarEnderecosDoUsuario(ClienteLogado.Id);
@@ -242,7 +244,7 @@ public class Sistema
                 int a = int.Parse(Console.ReadLine());
                 if (a == 1)
                 {
-                    _CarrinhoUC.SomarCompra(ClienteLogado.Id);
+                  SomarCompra();
                 }
             }
             else
@@ -253,16 +255,18 @@ public class Sistema
             }
         }
     }
-    //Fim da Entega
 
-   //public double NotaFiscalVenda()
-   //{
-   //    //double valor = 0;
-   //    //List<ReadCarrinhoDTO> carrinhosDTO = _CarrinhoUC.ListarCarrinhoUsuarioLogado(ClienteLogado.Id);
-   //    //foreach (ReadCarrinhoDTO car in carrinhosDTO)
-   //    //{
-   //    //    valor += car.Livro.Preco;
-   //    //}
-   //    //return valor;
-   //}
+    public double SomarCompra()
+    {
+        double valor = 100;
+        List<ReadCarrinhoDTO> carrinhosDTO = _CarrinhoUC.ListarCarrinhoUsuarioLogado(ClienteLogado.Id);
+     
+        foreach (ReadCarrinhoDTO car in carrinhosDTO)
+        {
+            valor += car.Livro.Preco;
+            Console.WriteLine($"Valor Total: {valor}");
+        }
+        return valor;
+    }
+
 }
