@@ -9,6 +9,6 @@ namespace TrabalhoFinal._3_Entidade.DTO
     public class CreateCarrinhoDTO
     {
         public int UsuarioId { get; set; }
-        public int LivroId { get; set; }
+        public int LivroId { get; set; }    
     }
 }

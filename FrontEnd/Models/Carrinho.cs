@@ -12,9 +12,11 @@ namespace FrontEnd.Models
         public int ClienteId { get; set; }
         public int LivroId { get; set; }
 
+        public Livro livro { get; set; }    
+
         public override string ToString()
         {
-            return $"Id: {Id} - Nome Cliente: {ClienteId} - Livro: {LivroId} - Preco: {PrecoId}  ";
+            return $"Id: {Id} - Nome Cliente: {ClienteId} - Livro: {LivroId} - Preco: {livro.Preco}  ";
         }
     }
 }

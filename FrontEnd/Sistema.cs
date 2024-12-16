@@ -3,6 +3,7 @@ using FrontEnd.Models.DTOs;
 using FrontEnd.UseCases;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,7 @@ public class Sistema
     public readonly CarrinhoUC _CarrinhoUC;
     public readonly EnderecoUC _enderecoUC;
     public readonly VendaUC _venda;
+    public readonly Livro _livro;
 
     public Sistema(HttpClient client)
     {
@@ -147,7 +149,7 @@ public class Sistema
         carrinho.LivroId = id;
         carrinho.ClienteId = ClienteLogado.Id;
         Carrinho carrinho1 = new Carrinho();
-        Console.WriteLine("Ok,  deu serto!!");
+        Console.WriteLine("Produto adicionado com sucesso!!");
         return carrinho;
     }
 
@@ -211,18 +213,21 @@ public class Sistema
 
     private void RealizarEntrega()
     {
-        int idEndereco = 0;
+        int idEndereco = -1;
         Console.WriteLine("Escolha uma opção: \n 1- Retirar na loja " +
                                              "\n 2- Entregar a domicilio");
         int alternativa = int.Parse(Console.ReadLine());
+       
         if (alternativa == 1)
         {
+            SomarCompra();
             Console.WriteLine("Retire a sua compra na loja em 7 dias.");
         }
+     
         else if (alternativa == 2)
         {
             int opcao = -1;
-            Console.WriteLine("Escolha as opção: \n 1 - Listar Enderecos cadastrados" +
+            Console.WriteLine("Escolha as opção: \n 1 - Enderecos já cadastrados" +
                                                 "\n 2 - Cadastrar endereço");
             opcao = int.Parse(Console.ReadLine());
 
@@ -237,7 +242,7 @@ public class Sistema
 
                 idEndereco = int.Parse(Console.ReadLine());
 
-
+                Console.WriteLine();
                 Console.WriteLine($"Deseja Finalizar esta Compra? " +
                                   $"\n1-Sim" +
                                   $"\n2-Não");
@@ -265,6 +270,57 @@ public class Sistema
         {
             valor += car.Livro.Preco;
             Console.WriteLine($"Valor Total: {valor}");
+            Console.WriteLine("Deseja pagar de que forma: \n1- Pix \n2-Dinheiro \n3-Cartao");
+            int opicao =int.Parse(Console.ReadLine());
+            if(opicao == 1)
+            {
+                Console.WriteLine($"Forma de pagamento: Pix" +
+                    $"\nValor da compra: {valor}" +
+                    $"\nAgradecemos por comprar um Livro em nosa loja.");
+            }
+            else if(opicao == 2)
+            {
+                Console.WriteLine($"Forma de pagamento: Dinheiro" +
+                   $"\nValor da compra: {valor}" +
+                   $"\nAgradecemos por comprar um Livro em nosa loja.");
+            }
+            else
+            {
+                Console.WriteLine("Deseja pagar no: \n1-Debito \n2-Credito");
+                int opicao2 = int.Parse(Console.ReadLine());    
+
+                if(opicao2 == 1)
+                {
+                    Console.WriteLine($"Forma de pagamento: Cartao Debito" +
+                  $"\nValor da compra: {valor}" +
+                  $"\nAgradecemos por comprar um Livro em nosa loja.");
+                }
+                else
+                {
+                    Console.WriteLine("Deseja dividir de quantas vezes: \n1- 2x Sem juros \n2- 3x sem juros \n3- 4x sem juros");
+                    int opicao3 = int.Parse(Console.ReadLine());
+                    if(opicao3== 1)
+                    {
+                        Console.WriteLine($"Forma de pagamento: Cartao Credito 2x sem juros" +
+                  $"\nValor da compra: {valor}" +
+                  $"\nAgradecemos por comprar um Livro em nosa loja.");
+                    }
+                    else if(opicao3 == 2)
+                    {
+                        Console.WriteLine($"Forma de pagamento: Cartao Credito 3x sem juros" +
+                  $"\nValor da compra: {valor}" +
+                  $"\nAgradecemos por comprar um Livro em nosa loja.");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Forma de pagamento: Cartao Credito 4x sem juros" +
+                  $"\nValor da compra: {valor}" +
+                  $"\nAgradecemos por comprar um Livro em nosa loja.");
+                    }
+                }
+                
+            }
+
         }
         return valor;
     }

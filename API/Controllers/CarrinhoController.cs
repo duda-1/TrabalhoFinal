@@ -29,7 +29,7 @@ namespace API.Controllers
         /// </summary>
         /// <param name="c"></param>
         [HttpPost("Adicionar_Carrinho")]
-        public IActionResult AdicionmarCarrinho([FromBody] CreateCarrinhoDTO c)
+        public IActionResult AdicionmarCarrinho([FromBody] Carrinho c)
         {
             try
             {
