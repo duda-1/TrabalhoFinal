@@ -14,7 +14,7 @@ namespace FrontEnd.Models.DTOs
 
         public override string ToString()
         {
-            if (Cliente == null || Cliente == null)
+            if (Cliente == null || Livro == null)
             {
                 return $"Codigo com Erro Produto ou Usuario Vazio!!! Confira no Banco";
             }

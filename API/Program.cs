@@ -39,7 +39,6 @@ builder.Services.AddScoped<IEnderecoRepository, EnderecoRepository>();
 builder.Services.AddScoped<ILivroService, LivroService>();
 builder.Services.AddScoped<ILivroRepository, LivroRepository>();
 
-
 builder.Services.AddScoped<ICarrinhoService, CarrinhoService>();
 builder.Services.AddScoped<ICarrinhoRepository, CarrinhoRepository>();
 

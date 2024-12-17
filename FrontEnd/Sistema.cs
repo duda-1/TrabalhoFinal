@@ -142,13 +142,11 @@ public class Sistema
 
     public Carrinho CriarCarrinho()
     {
-        Livro l = new Livro();
         Carrinho carrinho = new Carrinho();
         Console.WriteLine("Id do Produto: ");
         int id = int.Parse(Console.ReadLine());
         carrinho.LivroId = id;
         carrinho.ClienteId = ClienteLogado.Id;
-        Carrinho carrinho1 = new Carrinho();
         Console.WriteLine("Produto adicionado com sucesso!!");
         return carrinho;
     }
@@ -183,7 +181,7 @@ public class Sistema
                     Console.WriteLine(car.ToString());
                 }
 
-                RealizarEntrega();
+                acao = RealizarEntrega();
 
             }
 
@@ -211,7 +209,7 @@ public class Sistema
         return endereco;
     }
 
-    private void RealizarEntrega()
+    private int RealizarEntrega()
     {
         int idEndereco = -1;
         Console.WriteLine("Escolha uma opção: \n 1- Retirar na loja " +
@@ -221,7 +219,7 @@ public class Sistema
         if (alternativa == 1)
         {
             SomarCompra();
-            Console.WriteLine("Retire a sua compra na loja em 7 dias.");
+            Console.WriteLine("Retire a sua compra na loja em ate 7 dias uteis.");
         }
      
         else if (alternativa == 2)
@@ -250,6 +248,7 @@ public class Sistema
                 if (a == 1)
                 {
                   SomarCompra();
+                    return 0;
                 }
             }
             else
@@ -259,6 +258,7 @@ public class Sistema
                 idEndereco = endereco.Id;
             }
         }
+        return 1;
     }
 
     public double SomarCompra()

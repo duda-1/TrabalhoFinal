@@ -1,4 +1,5 @@
 ﻿using Dapper.Contrib.Extensions;
+using FrontEnd.Models.DTOs;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
