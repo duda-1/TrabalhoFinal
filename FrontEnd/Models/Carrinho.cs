@@ -9,14 +9,14 @@ namespace FrontEnd.Models
     public class Carrinho
     {
         public int Id { get; set; }
-        public int ClienteId { get; set; }
+        public int UsuarioId { get; set; }
         public int LivroId { get; set; }
 
         public Livro livro { get; set; }    
 
         public override string ToString()
         {
-            return $"Id: {Id} - Nome Cliente: {ClienteId} - Livro: {LivroId} - Preco: {livro.Preco}  ";
+            return $"Id: {Id} - Nome Cliente: {UsuarioId} - Livro: {LivroId} - Preco: {livro.Preco}  ";
         }
     }
 }
