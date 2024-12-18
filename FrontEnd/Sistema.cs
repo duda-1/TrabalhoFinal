@@ -153,7 +153,7 @@ public class Sistema
 
     public void RealizarCompra()
     {
-        int acao = 1;
+        int acao = -1;
         while (acao != 0)
         {
 
@@ -268,68 +268,62 @@ public class Sistema
 
         foreach (ReadCarrinhoDTO car in carrinhosDTO)
         {
+            int opicao = -1;
+            valor = car.Livro.Preco;      
 
-            valor = car.Livro.Preco;
-            FormaDePagamento(valor);
-        }
-        return valor;
-
-    }
-
-    public void FormaDePagamento(double valor)
-    {
-        int opicao = -1;
-
-        Console.WriteLine($"Valor Total: {valor}");
-        Console.WriteLine("Deseja pagar de que forma: \n1- Pix \n2-Dinheiro \n3-Cartao");
-        opicao = int.Parse(Console.ReadLine());
-        if (opicao == 1)
-        {
-            Console.WriteLine($"Forma de pagamento: Pix" +
-                $"\nValor da compra: {valor}" +
-                $"\nAgradecemos por comprar um Livro em nosa loja.");
-        }
-        else if (opicao == 2)
-        {
-            Console.WriteLine($"Forma de pagamento: Dinheiro" +
-               $"\nValor da compra: {valor}" +
-               $"\nAgradecemos por comprar um Livro em nosa loja.");
-        }
-        else
-        {
-            Console.WriteLine("Deseja pagar no: \n1-Debito \n2-Credito");
-            int opicao2 = int.Parse(Console.ReadLine());
-
-            if (opicao2 == 1)
+            Console.WriteLine($"Valor Total: {valor}");
+            Console.WriteLine("Deseja pagar de que forma: \n1- Pix \n2-Dinheiro \n3-Cartao");
+            opicao = int.Parse(Console.ReadLine());
+            if (opicao == 1)
             {
-                Console.WriteLine($"Forma de pagamento: Cartao Debito" +
-              $"\nValor da compra: {valor}" +
-              $"\nAgradecemos por comprar um Livro em nosa loja.");
+                Console.WriteLine($"Forma de pagamento: Pix" +
+                    $"\nValor da compra: {valor}" +
+                    $"\nAgradecemos por comprar um Livro em nosa loja.");
+            }
+            else if (opicao == 2)
+            {
+                Console.WriteLine($"Forma de pagamento: Dinheiro" +
+                   $"\nValor da compra: {valor}" +
+                   $"\nAgradecemos por comprar um Livro em nosa loja.");
             }
             else
             {
-                Console.WriteLine("Deseja dividir de quantas vezes: \n1- 2x Sem juros \n2- 3x sem juros \n3- 4x sem juros");
-                int opicao3 = int.Parse(Console.ReadLine());
-                if (opicao3 == 1)
+                Console.WriteLine("Deseja pagar no: \n1-Debito \n2-Credito");
+                int opicao2 = int.Parse(Console.ReadLine());
+
+                if (opicao2 == 1)
                 {
-                    Console.WriteLine($"Forma de pagamento: Cartao Credito 2x sem juros" +
-              $"\nValor da compra: {valor}" +
-              $"\nAgradecemos por comprar um Livro em nosa loja.");
-                }
-                else if (opicao3 == 2)
-                {
-                    Console.WriteLine($"Forma de pagamento: Cartao Credito 3x sem juros" +
-              $"\nValor da compra: {valor}" +
-              $"\nAgradecemos por comprar um Livro em nosa loja.");
+                    Console.WriteLine($"Forma de pagamento: Cartao Debito" +
+                  $"\nValor da compra: {valor}" +
+                  $"\nAgradecemos por comprar um Livro em nosa loja.");
                 }
                 else
                 {
-                    Console.WriteLine($"Forma de pagamento: Cartao Credito 4x sem juros" +
-              $"\nValor da compra: {valor}" +
-              $"\nAgradecemos por comprar um Livro em nosa loja.");
+                    Console.WriteLine("Deseja dividir de quantas vezes: \n1- 2x Sem juros \n2- 3x sem juros \n3- 4x sem juros");
+                    int opicao3 = int.Parse(Console.ReadLine());
+                    if (opicao3 == 1)
+                    {
+                        Console.WriteLine($"Forma de pagamento: Cartao Credito 2x sem juros" +
+                  $"\nValor da compra: {valor}" +
+                  $"\nAgradecemos por comprar um Livro em nosa loja.");
+                    }
+                    else if (opicao3 == 2)
+                    {
+                        Console.WriteLine($"Forma de pagamento: Cartao Credito 3x sem juros" +
+                  $"\nValor da compra: {valor}" +
+                  $"\nAgradecemos por comprar um Livro em nosa loja.");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Forma de pagamento: Cartao Credito 4x sem juros" +
+                  $"\nValor da compra: {valor}" +
+                  $"\nAgradecemos por comprar um Livro em nosa loja.");
+                    }
                 }
             }
+
         }
 
+        return valor;
     }
 }
